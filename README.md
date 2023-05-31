@@ -30,7 +30,7 @@ Make sure you have Node.js and npm installed on your machine.
 
 1. Visit the app in your web browser.
 2. Enter the country name or select criteria to search for specific countries.
-3. Click on a country to view detailed information, including flag and map.
+3. Click on a country to view detailed information, including flag etc.
 4. Explore different regions and filter countries based on preferences.
 
 ## Contributing
@@ -53,9 +53,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 - [REST Countries API](https://restcountries.com/#rest-countries) for providing country data.
 - [Tailwind CSS](https://tailwindcss.com) for the responsive and utility-first CSS framework.
-- The open-source community for their valuable contributions and resources.
 
 ## Contact
 
-For any inquiries or feedback, please contact the project team at (francis.fuwaku@amalech.org).
+For any inquiries or feedback, please contact the project team at (francis.fuwaku@amalitech.org).
 
