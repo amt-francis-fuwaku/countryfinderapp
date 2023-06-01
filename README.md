@@ -17,6 +17,49 @@ Flag, Native Name,Region,Sub Region,Capital,Top Level,Domain,Currencies,Border C
 - Front-end: HTML, CSS (Tailwind CSS), TypeScript, React.js
 - Data Source: RESTful API (e.g., REST Countries API)
 
+## Folder Structure adopted
+src
+├── components
+│   ├── Header
+│   │   ├── Header.js
+│   │   ├── Header.css
+│   │   └── Header.test.js
+│   ├── Footer
+│   │   ├── Footer.js
+│   │   ├── Footer.css
+│   │   └── Footer.test.js
+│   └── ...
+├── pages
+│   ├── Home
+│   │   ├── Home.js
+│   │   ├── Home.css
+│   │   └── Home.test.js
+│   ├── About
+│   │   ├── About.js
+│   │   ├── About.css
+│   │   └── About.test.js
+│   └── ...
+├── utils
+│   ├── api.js
+│   ├── helper.js
+│   └── ...
+├── App.js
+├── App.css
+└── index.js
+
+## The componentsdirectory:
+contains reusable UI components. Each component has its own folder,
+with the component file (e.g., Header.js), corresponding styles (e.g., Header.css), and any related tests (e.g., Header.test.js).
+## The pages directory :
+contains page-specific components. Each page has its own folder, with the page component file, styles, and tests.
+## The utils directory:
+houses utility functions, helper modules, or API-related files that are used across the app.
+## The App.js file :
+serves as the main entry point for the application, where the overall layout and routing are typically defined.
+The index.js file is responsible for rendering the app and mounting it to the DOM.
+
+
+
 ## Installation
 
 1. Clone the repository: `git clone <repository-url>`
