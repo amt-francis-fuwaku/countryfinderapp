@@ -1,11 +1,21 @@
+import MenuComponent from "../../components/menu_component/MenuComponent";
+import SearchBarComponent from "../../components/search_bar_component/SearchBarComponent";
+import FilterComponent from "../../components/select_region_component/FilterComponent";
+
 const LayoutPage = () => {
     return (
-        <body>
+        <div className="flex flex-col gap-28">
             <header>
-                <h1>IM HEADER</h1>
+                <MenuComponent />
             </header>
+            <section>
+                <SearchBarComponent />
+            </section>
+            <section>
+                <FilterComponent />
+            </section>
             <main> IM MAIN PAGE</main>
-        </body>
+        </div>
     );
 };
 
