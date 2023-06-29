@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //component css style
 import { darkModeTextStyle, menuStyle, menuTextStyle } from "./menustyle";
+import { useThemeProvider } from "../../context_data/useThemeProvider";
 
 const MenuComponent = () => {
+    const theme = useThemeProvider();
     return (
-        <div className={menuStyle}>
+        <div className={menuStyle} style={theme.theme}>
             <div className="place-self-center ml-2">
                 <p className={menuTextStyle}>where in the world?</p>
             </div>
@@ -14,7 +16,7 @@ const MenuComponent = () => {
                 <div className="mr-2">
                     <FontAwesomeIcon icon={regularMoon} />
                 </div>
-                <div>
+                <div onClick={theme.toggle}>
                     <p className={darkModeTextStyle}>Dark Mode</p>
                 </div>
             </div>

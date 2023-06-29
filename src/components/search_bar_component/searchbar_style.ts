@@ -5,8 +5,7 @@ justify-start
 place-items-center
  h-16
  rounded-md 
-border-slate-100 
-border  
+fixed
 p-2 
 bg-white 
 shadow-md  
@@ -19,9 +18,9 @@ py-2
 bg-white
  placeholder-slate-300 
 focus:outline-none 
-focus:border-slate-100 
 focus:ring-slate-100 
-block w-full 
+block 
+w-full 
 rounded-md 
 sm:text-sm 
 focus:ring-1`);
