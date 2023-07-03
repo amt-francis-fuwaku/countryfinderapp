@@ -3,8 +3,8 @@ import { DataContextProvider } from "./DataProvider";
 
 export const useDataProvider = () => {
     const countries = useContext(DataContextProvider);
-    if (!countries) {
+    if (!countries?.data) {
         throw new Error("Data Not Found");
     }
-    return countries;
+    return countries.data;
 };

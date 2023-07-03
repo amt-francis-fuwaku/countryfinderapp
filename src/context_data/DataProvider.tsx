@@ -6,12 +6,11 @@ interface DataProviderProps {
 }
 
 interface Data {
-    [key: string]: string;
+    [key: string]: any;
 }
 
 interface DataContextProps {
     data: Data | null;
-    fetchData: (input: string) => void;
 }
 
 export const DataContextProvider = createContext<DataContextProps | null>(null);
@@ -36,7 +35,6 @@ const DataProvider = ({ children }: DataProviderProps) => {
 
     const contextData = {
         data,
-        fetchData,
     };
     return (
         <DataContextProvider.Provider value={contextData}>
