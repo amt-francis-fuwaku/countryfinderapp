@@ -26,12 +26,18 @@ const LayoutPage = () => {
             <section className="-my-32">
                 <FilterComponent />
             </section>
-            <main className="mt-20 px-12 content-center text-justify">
-                {data
-                    ?.sort((a, b) => a.name.common.localeCompare(b.name.common))
-                    .map((country: any, index: number) => (
-                        <CardComponent data={country} key={index} />
-                    ))}
+            <main className="mt-20 px-12 content-center text-justify md:mx-20 lg:mx-28">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 ">
+                    {data
+                        ?.sort((a, b) =>
+                            a.name.common.localeCompare(b.name.common)
+                        )
+                        .map((country: any, index: number) => (
+                            <div key={index}>
+                                <CardComponent data={country} />
+                            </div>
+                        ))}
+                </div>
             </main>
         </div>
     );

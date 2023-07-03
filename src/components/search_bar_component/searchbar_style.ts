@@ -10,7 +10,9 @@ p-2
 bg-white 
 shadow-md  
 mr-4
- ml-4`);
+ ml-4
+lg:w-[550px]
+lg:ml-40`);
 
 export const inputBarStyle = ctl(`ml-0 
 px-3 

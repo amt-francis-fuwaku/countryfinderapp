@@ -11,6 +11,8 @@ fixed
 left-0
  right-0 h-20`);
 
-export const darkModeTextStyle = ctl(`mr-4 font-normal text-[12px]`);
+export const darkModeTextStyle = ctl(
+    `mr-4 font-normal text-[12px] cursor-pointer`
+);
 
 export const menuTextStyle = ctl(`font-bold`);
