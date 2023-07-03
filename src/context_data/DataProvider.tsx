@@ -20,7 +20,7 @@ const DataProvider = ({ children }: DataProviderProps) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(
+            const response = await axios.get<Data[]>(
                 "https://restcountries.com/v3.1/all"
             );
             setData(response.data);
@@ -33,9 +33,10 @@ const DataProvider = ({ children }: DataProviderProps) => {
         fetchData();
     }, []);
 
-    const contextData = {
+    const contextData: DataContextProps = {
         data,
     };
+
     return (
         <DataContextProvider.Provider value={contextData}>
             {children}

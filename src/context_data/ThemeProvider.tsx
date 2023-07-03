@@ -24,7 +24,7 @@ export const DataProvider = createContext<ContextProviderValue | null>(null);
 
 const ThemeProvider = ({ children }: ContextComponentProps) => {
     const themeData: Theme = {
-        light: { background: "white", color: "black" },
+        light: { background: "#FAFAFA", color: "black" },
         dark: { background: "#2B3844", color: "white" },
     };
 

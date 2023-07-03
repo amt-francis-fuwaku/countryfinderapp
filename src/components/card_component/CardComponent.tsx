@@ -1,24 +1,23 @@
 import { useThemeProvider } from "../../context_data/useThemeProvider";
+import { cardStyle } from "./cardstyle";
 
 interface CardComponentProps {
-    data: unknown;
+    data: any;
 }
 
 const CardComponent = ({ data }: CardComponentProps) => {
     const theme = useThemeProvider();
+    console.log("🚀countryData:", data.capital, data.name.common);
     return (
-        <div
-            className=" flex flex-col h-[336px] w-[264px] bg-slate-300 rounded-lg shadow-lg mb-12"
-            style={theme.theme}
-        >
-            <div className="h-[160px] bg-slate-600">
-                <img src={""} alt={""} />
+        <div className={cardStyle} style={theme.theme}>
+            <div className="h-[160px]">
+                <img src={data.flags.svg} alt={data.flags.alt} />
             </div>
             <div className=" flex flex-col py-8 px-4">
-                <p className="font-bold text-lg">{}</p>
-                <p>Population : {}</p>
-                <p>Region : {} </p>
-                <p>Capital : {} </p>
+                <p className="font-bold text-lg">{data.name.common}</p>
+                <p>Population : {data.population.toLocaleString()}</p>
+                <p>Region : {data.region} </p>
+                <p>Capital : {data.capital ? data.capital : "no capital "} </p>
             </div>
         </div>
     );
