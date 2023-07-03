@@ -14,7 +14,7 @@ const SearchBarComponent = () => {
                     <FontAwesomeIcon
                         icon={faMagnifyingGlass}
                         size="lg"
-                        style={{ color: "#b2b2b2" }}
+                        style={{ color: `${theme.theme.color}` }}
                     />
                 </div>
                 <div>

@@ -3,7 +3,7 @@ import ctl from "@netlify/classnames-template-literals";
 export const searchBarStyle = ctl(`flex flex-row 
 justify-start 
 place-items-center
- h-16
+ h-14
  rounded-md 
 fixed
 p-2 

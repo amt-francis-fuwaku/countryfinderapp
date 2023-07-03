@@ -1,8 +1,4 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-// import axios from "axios";
-//
-// // Set a global base URL for all Axios requests in the application
-// axios.defaults.baseURL = "https://restcountries.com/v3.1";
 
 // Component children
 type ContextComponentProps = {

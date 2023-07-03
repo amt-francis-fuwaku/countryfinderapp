@@ -5,14 +5,14 @@ import { useThemeProvider } from "../../context_data/useThemeProvider";
 const LayoutPage = () => {
     const theme = useThemeProvider();
     return (
-        <div className="flex flex-col gap-32 " style={theme.theme}>
-            <section className="my-28">
+        <div className="flex flex-col gap-32" style={theme.theme}>
+            <section className="my-28 font-nunito">
                 <SearchBarComponent />
             </section>
             <section className="-my-32">
                 <FilterComponent />
             </section>
-            <main>
+            <main className="mt-10">
                 <p className="p-6 text-justify">
                     When you do this while giving to the needy, your deeds are
                     in vain, people’s attention is your reward…clearly your

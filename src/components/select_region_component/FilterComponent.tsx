@@ -26,7 +26,7 @@ const FilterComponent = () => {
                 <div>
                     <p>{selectedRegion || "Filter by Region"}</p>
                 </div>
-                <div className="mr-4" onClick={toggleDropDownList}>
+                <div onClick={toggleDropDownList}>
                     <FontAwesomeIcon
                         icon={faChevronDown}
                         style={{ color: `${theme.theme.color}` }}
