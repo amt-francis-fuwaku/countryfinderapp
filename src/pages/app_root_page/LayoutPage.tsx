@@ -9,9 +9,11 @@ import { useDataProvider } from "../../context_data/useDataProvider";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
 
 const LayoutPage = () => {
+    //data context
     const theme = useThemeProvider();
     const countryData = useDataProvider();
 
+    //get data from context
     const data = countryData?.data;
 
     if (!countryData) {

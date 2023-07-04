@@ -7,11 +7,18 @@ interface CardComponentProps {
 
 const CardComponent = ({ data }: CardComponentProps) => {
     const theme = useThemeProvider();
-    console.log("🚀countryData:", data.capital, data.name.common);
+    // console.log("🚀countryData:", data.capital, data.name.common);
     return (
         <div className={cardStyle} style={theme.theme}>
-            <div className="h-[160px]">
+            {/* <div className="h-[160px]">
                 <img src={data.flags.svg} alt={data.flags.alt} />
+            </div> */}
+            <div className="h-40">
+                <img
+                    src={data?.flags?.svg}
+                    alt={data?.flags?.alt}
+                    className="object-cover w-full h-full"
+                />
             </div>
             <div className=" flex flex-col py-8 px-4">
                 <p className="font-bold text-lg">{data.name.common}</p>
