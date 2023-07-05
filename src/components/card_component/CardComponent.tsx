@@ -10,9 +10,6 @@ const CardComponent = ({ data }: CardComponentProps) => {
     // console.log("🚀countryData:", data.capital, data.name.common);
     return (
         <div className={cardStyle} style={theme.theme}>
-            {/* <div className="h-[160px]">
-                <img src={data.flags.svg} alt={data.flags.alt} />
-            </div> */}
             <div className="h-40">
                 <img
                     src={data?.flags?.svg}

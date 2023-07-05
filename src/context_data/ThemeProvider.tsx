@@ -37,7 +37,6 @@ const ThemeProvider = ({ children }: ContextComponentProps) => {
 
     // Changes theme
     const toggleTheme = () => {
-        console.log("toggled", theme);
         setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
     };
 
