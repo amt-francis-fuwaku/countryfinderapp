@@ -4,27 +4,53 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //component css style
 import { inputBarStyle, searchBarStyle } from "./searchbar_style";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
+import { useState } from "react";
+import { useDataProvider } from "../../context_data/useDataProvider";
 
 const SearchBarComponent = () => {
     const theme = useThemeProvider();
+    const countryData = useDataProvider();
+    const data = countryData?.data;
+    const setData = countryData?.setData;
+
+    const [searchedCountry, setSearchedCountry] = useState("");
+
+    const getFilteredByName = () => {
+        const filteredData = data?.filter((item) =>
+            item.name.common.toLowerCase().includes(searchedCountry.trim())
+        );
+        if (searchedCountry.trim()) {
+            setData(filteredData);
+        }
+    };
+
+    const getSearchedCountryData = (e: string) => {
+        getFilteredByName();
+        setSearchedCountry(e.toLowerCase());
+    };
+
     return (
         <>
             <div className={searchBarStyle} style={theme.theme}>
-                <div className="m-8">
+                <div className="m-8 ">
                     <FontAwesomeIcon
                         icon={faMagnifyingGlass}
                         size="lg"
                         style={{ color: `${theme.theme.color}` }}
                     />
                 </div>
-                <div>
+                <form>
                     <input
+                        onChange={(e) => {
+                            getSearchedCountryData(e.currentTarget.value);
+                        }}
+                        value={searchedCountry}
                         type="text"
                         placeholder="search for a country..."
                         className={inputBarStyle}
                         style={theme.theme}
                     />
-                </div>
+                </form>
             </div>
         </>
     );

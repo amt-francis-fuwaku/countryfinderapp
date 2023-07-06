@@ -14,7 +14,10 @@ ml-4
 mr-32
 cursor-pointer
 fixed
-lg:right-24 lg:top-24 lg:mt-6 lg:mr-48`);
+lg:right-24
+lg:top-24
+lg:mt-2
+lg:mr-[3.59%]`);
 
 export const dropDownListStyle = ctl(` flex-row 
 place-items-center 
@@ -31,4 +34,9 @@ mt-14
 z-10
 cursor-pointer
 fixed
-lg:right-24 lg:top-24 lg:mt-24 lg:mr-32 lg:mr-48`);
+lg:right-24
+lg:top-24
+lg:mt-24
+lg:mr-32
+lg:mr-48
+lg:mr-[3.59%]`);

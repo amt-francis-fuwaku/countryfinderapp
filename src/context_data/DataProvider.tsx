@@ -1,6 +1,9 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import axios from "axios";
 
+const instance = axios.create({
+    baseURL: "https://restcountries.com/v3.1",
+});
 interface DataProviderProps {
     children: ReactNode;
 }
@@ -21,9 +24,7 @@ const DataProvider = ({ children }: DataProviderProps) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get<Data[]>(
-                "https://restcountries.com/v3.1/all"
-            );
+            const response = await instance.get<Data[]>(`/all`);
             setData(response.data);
         } catch (error) {
             throw new Error("No Data Found");

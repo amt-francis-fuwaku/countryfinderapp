@@ -7,8 +7,10 @@ place-items-center
  rounded-md 
 fixed
 p-2 
+-mt-28
 bg-white 
 shadow-md  
+font-nunito
 mr-4
  ml-4
 lg:w-[550px]
@@ -24,5 +26,6 @@ focus:ring-slate-100
 block 
 w-full 
 rounded-md 
+font-nunito
 sm:text-sm 
 focus:ring-1`);

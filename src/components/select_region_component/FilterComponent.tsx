@@ -31,6 +31,16 @@ const FilterComponent = () => {
         toggleDropDownList();
     };
 
+    // const filteredData = () => {
+    //     const filtered = data?.filter(
+    //         (region) => region?.region === selectedRegion
+    //     );
+    //     if (selectedRegion) {
+    //         console.log(">>>>>>>>Data", data, filtered);
+    //         countryData?.setData(filtered);
+    //     }
+    // };
+
     const filteredByRegion = async () => {
         try {
             if (selectedRegion) {
@@ -48,6 +58,7 @@ const FilterComponent = () => {
 
     useEffect(() => {
         filteredByRegion();
+        // filteredData();
     }, [selectedRegion]);
 
     return (
