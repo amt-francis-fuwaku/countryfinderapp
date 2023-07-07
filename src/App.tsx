@@ -5,10 +5,10 @@ import MenuComponent from "./components/menu_component/MenuComponent";
 
 function App() {
     return (
-        <>
+        <div>
             <MenuComponent />
             <RouterProvider router={router} />
-        </>
+        </div>
     );
 }
 export default App;

@@ -2,50 +2,111 @@ import { useDataProvider } from "../../context_data/useDataProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
+import { NavLink, useLocation } from "react-router-dom";
 
 const CountryDetailsPage = () => {
     const theme = useThemeProvider();
-    const countryData = useDataProvider();
-    const data = countryData?.data?.[15];
+    const country = useLocation();
+    const data = country?.state;
+    console.log("🚀 country DATA from Link:", country);
 
     return (
-        <section className=" flex flex-col h-screen pt-10">
-            <button
-                className="flex flex-row justify-around  mt-[20%] ml-[10%] w-28 cursor-pointer shadow-lg text-white py-2 px-4 rounded"
-                style={{ color: `${theme.theme.color}` }}
-            >
-                <div>
-                    <FontAwesomeIcon
-                        icon={faArrowLeft}
+        <section className="mx-[10%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%]">
+            <div className="md:-mt-14  ">
+                <NavLink to="/">
+                    <button
+                        className="flex flex-row  justify-around my-5 ml-[1%] w-28 cursor-pointer shadow-lg py-2 px-4 rounded md:fixed md:top-[25%] lg:-mt-20"
                         style={{ color: `${theme.theme.color}` }}
-                    />
-                </div>
-                <p>Back</p>
-            </button>
-            <div className="mx-[10%] pt-14">
-                <figure>
+                    >
+                        <div>
+                            <FontAwesomeIcon
+                                icon={faArrowLeft}
+                                style={{ color: `${theme.theme.color}` }}
+                            />
+                        </div>
+                        <p>Back</p>
+                    </button>
+                </NavLink>
+                <figure className=" md:h-[100%] lg:flex lg:gap-32 lg:my-20 lg:p-10">
                     <img
-                        className="rounded-lg"
+                        className="rounded-lg  md:w-[50%] md:h-[50%]"
                         src={data.flags.svg}
                         alt="Description of the image"
                     />
-                    <figcaption>
-                        <p className="font-extrabold font-nunito">
-                            {data.name.common}
-                        </p>
-                        <section>
-                            <p>Native Name: {data.name.common}</p>
-                            <p>{data.name.common}</p>
-                        </section>
-                        <section>
-                            <p>Native Name: {data.name.common}</p>
-                            <p>{data.name.common}</p>
-                        </section>
-                        <section>
-                            <p className="font-extrabold">Border Countries</p>
-                            <section>
-                                <p>{data.name.common}</p>
+                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 ">
+                        <p className="font-bold text-2xl">{data.name.common}</p>
+                        <div className="lg:flex lg:gap-32">
+                            <section className="mt-4 ">
+                                <div className="flex gap-3  py-1 ">
+                                    <p className="font-semibold">
+                                        Native Name:
+                                    </p>
+                                    <p className="font-thin">
+                                        {data.name.common}
+                                    </p>
+                                </div>
+                                <div className="flex gap-3  py-1">
+                                    <p className="font-semibold">Population:</p>
+                                    <p className="font-thin">
+                                        {data.population.toLocaleString()}
+                                    </p>
+                                </div>
+                                <div className="flex gap-3  py-1">
+                                    <p className="font-semibold">Region:</p>
+                                    <p className="font-thin">{data.region}</p>
+                                </div>
+                                <div className="flex gap-3 py-1 ">
+                                    <p className="font-semibold">Sub Region:</p>
+                                    <p className="font-thin">
+                                        {data.subregion}
+                                    </p>
+                                </div>
+                                <div className="flex gap-3  py-1">
+                                    <p className="font-semibold">Capital:</p>
+                                    <p className="font-thin">{data.capital}</p>
+                                </div>
                             </section>
+                            <section className="mt-6">
+                                <div className="flex gap-3  py-1">
+                                    <p className="font-semibold">
+                                        Top Level Domain:
+                                    </p>
+                                    <p className="font-thin">
+                                        {data.currencies.name}
+                                    </p>
+                                </div>
+                                <div className="flex gap-3  py-1">
+                                    <p className="font-semibold">Currencies:</p>
+                                    <p className="font-thin">
+                                        {data.currencies.name}
+                                    </p>
+                                </div>
+                                <div className="flex gap-3  py-1">
+                                    <p className="font-semibold">Languages:</p>
+                                </div>
+                            </section>
+                        </div>
+                        <section className="grid mt-10  ">
+                            <p className="font-extrabold ">Border Countries</p>
+                        </section>
+                        <section className=" grid grid-cols-3 mt-6 pb-10">
+                            {data && data.borders?.length > 0 ? (
+                                data.borders.map(
+                                    (borderCountries, index: number) => (
+                                        <button
+                                            key={index}
+                                            className="mt-[5%] w-20 cursor-pointer shadow-lg py-2 rounded lg:w-32 lg:py-4"
+                                            style={{
+                                                color: `${theme.theme.color}`,
+                                            }}
+                                        >
+                                            <p>{borderCountries}</p>
+                                        </button>
+                                    )
+                                )
+                            ) : (
+                                <p>No data available.</p>
+                            )}
                         </section>
                     </figcaption>
                 </figure>
