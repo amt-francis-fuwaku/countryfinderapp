@@ -1,4 +1,3 @@
-import { useDataProvider } from "../../context_data/useDataProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
@@ -8,7 +7,8 @@ const CountryDetailsPage = () => {
     const theme = useThemeProvider();
     const country = useLocation();
     const data = country?.state;
-    console.log("🚀 country DATA from Link:", country);
+    console.log("🚀 country DATA from Link:", data);
+    console.log("🚀 country DATA from Link:", data.languages);
 
     return (
         <section className="mx-[10%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%]">
@@ -71,18 +71,17 @@ const CountryDetailsPage = () => {
                                     <p className="font-semibold">
                                         Top Level Domain:
                                     </p>
-                                    <p className="font-thin">
-                                        {data.currencies.name}
-                                    </p>
+                                    <p className="font-thin">{data.tld}</p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Currencies:</p>
                                     <p className="font-thin">
-                                        {data.currencies.name}
+                                        {data.currencies.names}
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Languages:</p>
+                                    <p>{data.languages.names}</p>
                                 </div>
                             </section>
                         </div>

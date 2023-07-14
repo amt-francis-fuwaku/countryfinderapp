@@ -11,7 +11,7 @@ import { dropDownListStyle, filterStyle } from "./filter_style";
 //context provider
 import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { useDataProvider } from "../../context_data/useDataProvider";
-import axios from "axios";
+// import axios from "axios";
 
 // component
 const FilterComponent = () => {
@@ -31,34 +31,53 @@ const FilterComponent = () => {
         toggleDropDownList();
     };
 
-    // const filteredData = () => {
-    //     const filtered = data?.filter(
-    //         (region) => region?.region === selectedRegion
-    //     );
-    //     if (selectedRegion) {
-    //         console.log(">>>>>>>>Data", data, filtered);
+    // const filteredData = async () => {
+    //     countryData.fetchData();
+    //     if (!selectedRegion) {
+    //         countryData?.setData(countryData.data);
+    //     } else if (selectedRegion) {
+    //         const filtered = countryData.data?.filter(
+    //             (region) => region?.region === selectedRegion
+    //         );
     //         countryData?.setData(filtered);
     //     }
     // };
 
-    const filteredByRegion = async () => {
-        try {
-            if (selectedRegion) {
-                const response = await axios.get(
-                    `https://restcountries.com/v3.1/region/${selectedRegion}`
-                );
-                const data = await response.data;
-                //set data
-                countryData?.setData(data);
-            }
-        } catch (error) {
-            throw new Error("Data not Found");
+    const filteredData = async () => {
+        if (!selectedRegion) {
+            countryData.fetchData();
+        } else {
+            countryData.fetchData();
+            const filtered = countryData.data?.filter(
+                (region) => region?.region === selectedRegion
+            );
+            countryData.setData(filtered);
+            console.log("country data:", countryData.data);
+            console.log("🚀selectedRegion:", selectedRegion);
         }
     };
 
+    // const filtere      dByRegion = async () => {
+    //     try {
+    //         countryData.fetchData()
+    //
+    //         if (selectedRegion) {
+    //             const regions = countryData.data?.filter((region)=>(region?.region === ))
+    //             // const response = await axios.get(
+    //             //     `https://restcountries.com/v3.1/region/${selectedRegion}`
+    //             // );
+    //             const data = await response.data;
+    //             //set data
+    //             countryData?.setData(data);
+    //         }
+    //     } catch (error) {
+    //         throw new Error("Data not Found");
+    //     }
+    // };
+
     useEffect(() => {
-        filteredByRegion();
-        // filteredData();
+        // filteredByRegion();
+        filteredData();
     }, [selectedRegion]);
 
     return (

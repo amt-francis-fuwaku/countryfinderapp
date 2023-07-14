@@ -15,6 +15,7 @@ interface Data {
 interface DataContextProps {
     data: Data | null;
     setData: React.Dispatch<React.SetStateAction<Data | null>>;
+    fetchData: () => Promise<void>;
 }
 
 export const DataContextProvider = createContext<DataContextProps | null>(null);
@@ -34,6 +35,7 @@ const DataProvider = ({ children }: DataProviderProps) => {
     const contextData: DataContextProps = {
         data,
         setData,
+        fetchData,
     };
 
     useEffect(() => {

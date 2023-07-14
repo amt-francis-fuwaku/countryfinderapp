@@ -19,14 +19,17 @@ const SearchBarComponent = () => {
         const filteredData = data?.filter((item) =>
             item.name.common.toLowerCase().includes(searchedCountry.trim())
         );
-        if (searchedCountry.trim()) {
+        if (searchedCountry) {
             setData(filteredData);
+        } else if (!searchedCountry) {
+            setData(data);
+            console.log(data);
         }
     };
 
     const getSearchedCountryData = (e: string) => {
-        getFilteredByName();
         setSearchedCountry(e.toLowerCase());
+        getFilteredByName();
     };
 
     return (
