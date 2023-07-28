@@ -23,7 +23,6 @@ const SearchBarComponent = () => {
             setData(filteredData);
         } else if (!searchedCountry) {
             setData(data);
-            console.log(data);
         }
     };
 
