@@ -16,7 +16,7 @@ const SearchBarComponent = () => {
     const [searchedCountry, setSearchedCountry] = useState("");
 
     const getFilteredByName = () => {
-        const filteredData = data?.filter((item) =>
+        const filteredData = data?.filter((item: any) =>
             item.name.common.toLowerCase().includes(searchedCountry.trim())
         );
         if (searchedCountry) {
