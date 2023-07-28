@@ -16,7 +16,7 @@ interface Theme {
 // Export this to your useContext() file
 interface ContextProviderValue {
     toggle: () => void;
-    theme: Theme;
+    theme: Theme[keyof Theme]; // Fix the type here
 }
 
 // Shared data for the app
@@ -30,10 +30,10 @@ const ThemeProvider = ({ children }: ContextComponentProps) => {
 
     // Get the theme from local storage or use the default theme
     const storedTheme = localStorage.getItem("theme");
-    const initialTheme = storedTheme ? storedTheme : "light";
+    const initialTheme: string = storedTheme ? storedTheme : "light";
 
     // Stores theme value
-    const [theme, setTheme] = useState(initialTheme);
+    const [theme, setTheme] = useState<keyof Theme>(initialTheme); // Fix the initial state
 
     // Changes theme
     const toggleTheme = () => {
@@ -42,7 +42,7 @@ const ThemeProvider = ({ children }: ContextComponentProps) => {
 
     // Update the local storage when the theme changes
     useEffect(() => {
-        localStorage.setItem("theme", theme);
+        localStorage.setItem("theme", theme as string);
     }, [theme]);
 
     // App context provider data

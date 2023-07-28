@@ -91,7 +91,7 @@ const CountryDetailsPage = () => {
                         <section className=" grid grid-cols-3 mt-6 pb-10">
                             {data && data.borders?.length > 0 ? (
                                 data.borders.map(
-                                    (borderCountries, index: number) => (
+                                    (borderCountries: any, index: number) => (
                                         <button
                                             key={index}
                                             className="mt-[5%] w-20 cursor-pointer shadow-lg py-2 rounded lg:w-32 lg:py-4"

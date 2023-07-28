@@ -49,7 +49,7 @@ const FilterComponent = () => {
         } else {
             countryData.fetchData();
             const filtered = countryData.data?.filter(
-                (region) => region?.region === selectedRegion
+                (region: any) => region?.region === selectedRegion
             );
             countryData.setData(filtered);
             console.log("country data:", countryData.data);
@@ -57,7 +57,7 @@ const FilterComponent = () => {
         }
     };
 
-    // const filtere      dByRegion = async () => {
+    // const filteredByRegion = async () => {
     //     try {
     //         countryData.fetchData()
     //
