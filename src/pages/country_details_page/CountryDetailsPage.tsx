@@ -7,8 +7,6 @@ const CountryDetailsPage = () => {
     const theme = useThemeProvider();
     const country = useLocation();
     const data = country?.state;
-    console.log("🚀 country DATA from Link:", data);
-    console.log("🚀 country DATA from Link:", data.languages);
 
     return (
         <section className="mx-[10%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%]">

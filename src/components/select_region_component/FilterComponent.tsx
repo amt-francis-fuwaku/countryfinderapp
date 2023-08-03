@@ -82,11 +82,15 @@ const FilterComponent = () => {
 
     return (
         <>
-            <div className={filterStyle} style={theme.theme}>
+            <div
+                className={filterStyle}
+                style={theme.theme}
+                onClick={toggleDropDownList}
+            >
                 <div>
                     <p>{selectedRegion || "Filter by Region"}</p>
                 </div>
-                <div onClick={toggleDropDownList}>
+                <div>
                     <FontAwesomeIcon
                         icon={faChevronDown}
                         style={{ color: `${theme.theme.color}` }}
