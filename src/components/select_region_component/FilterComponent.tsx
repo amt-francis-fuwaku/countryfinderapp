@@ -24,40 +24,30 @@ const FilterComponent = () => {
 
     //drop down data
     const [dropDown, setDropDown] = useState(true);
-    const [selectedRegion, setSelectedRegion] = useState("");
-
-    //toggles dropdown list
-    const toggleDropDownList = () => setDropDown(!dropDown);
+    const storedValue = localStorage.getItem("filter");
+    const [selectedRegion, setSelectedRegion] = useState(storedValue);
+    const toggleDropDownList = () => setDropDown(!dropDown); //toggles dropdown list
 
     //displays selected region to the user
     const showSelectedRegion = async (e: number) => {
-        await countryData.fetchData();
-
-        //set  selected region
-        setSelectedRegion(dropDownList[e]); //"All Countries", "Africa","Americas","Asia","Europe","Oceania"
-
-        //hide or show drp down list
-        toggleDropDownList();
+        await countryData.fetchData(); //fetch data
+        setSelectedRegion(dropDownList[e]); //set  selected region
+        toggleDropDownList(); //hide or show drp down list
     };
 
     //filter to display the right filtered data
     const filteredData = async () => {
-        if (!selectedRegion) {
-            await countryData.fetchData();
-        } else if (selectedRegion === "All Countries") {
-            countryData.fetchData();
-            countryData?.setData(countryData?.data);
-        } else if (selectedRegion) {
+        if (selectedRegion) {
             const filtered = data?.filter(
                 (region: any) => region?.region === selectedRegion
             );
             countryData?.setData(filtered);
-            console.log(selectedRegion);
         }
     };
 
     useEffect(() => {
         filteredData();
+        localStorage.setItem("filter", selectedRegion as string);
     }, [selectedRegion]);
 
     return (
@@ -68,7 +58,9 @@ const FilterComponent = () => {
                 onClick={toggleDropDownList}
             >
                 <div>
-                    <p>{selectedRegion || "Filter by Region"}</p>
+                    <p>
+                        {selectedRegion ? selectedRegion : "Filter by Region"}
+                    </p>
                 </div>
                 <div>
                     <FontAwesomeIcon

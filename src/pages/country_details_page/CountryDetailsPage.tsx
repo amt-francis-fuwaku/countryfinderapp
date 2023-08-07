@@ -13,7 +13,6 @@ const CountryDetailsPage = () => {
     //obstruct the string code for the currency
     const currencyCode = Object.keys(data?.currencies)[0];
     const languageCode = Object.keys(data?.languages)[0];
-    console.log("🚀languageCode:", languageCode);
 
     return (
         <section className="mx-[10%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%]">
@@ -35,11 +34,15 @@ const CountryDetailsPage = () => {
                 <figure className=" md:h-[100%] lg:flex lg:gap-32 lg:my-20 lg:p-10">
                     <img
                         className="rounded-lg  md:w-[50%] md:h-[50%]"
-                        src={data.flags.svg}
+                        src={data.flags.svg ? data.flags.svg : "no data found"}
                         alt="Description of the image"
                     />
                     <figcaption className="mt-10 md:h-[50%] md:-mt-10 ">
-                        <p className="font-bold text-2xl">{data.name.common}</p>
+                        <p className="font-bold text-2xl">
+                            {data.name.common
+                                ? data.name.common
+                                : "nodata found"}
+                        </p>
                         <div className="lg:flex lg:gap-32">
                             <section className="mt-4 ">
                                 <div className="flex gap-3  py-1 ">
@@ -47,28 +50,42 @@ const CountryDetailsPage = () => {
                                         Native Name:
                                     </p>
                                     <p className="font-thin">
-                                        {data.name.common}
+                                        {data.name.common
+                                            ? data.name.common
+                                            : "no data found"}
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Population:</p>
                                     <p className="font-thin">
-                                        {data.population.toLocaleString()}
+                                        {data.population
+                                            ? data.population.toLocaleString()
+                                            : "no data found"}
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Region:</p>
-                                    <p className="font-thin">{data.region}</p>
+                                    <p className="font-thin">
+                                        {data.region
+                                            ? data.region
+                                            : "no data found"}
+                                    </p>
                                 </div>
                                 <div className="flex gap-3 py-1 ">
                                     <p className="font-semibold">Sub Region:</p>
                                     <p className="font-thin">
-                                        {data.subregion}
+                                        {data.subregion
+                                            ? data.subregion
+                                            : "no data found"}
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Capital:</p>
-                                    <p className="font-thin">{data.capital}</p>
+                                    <p className="font-thin">
+                                        {data.capital
+                                            ? data.capital
+                                            : "no data found"}
+                                    </p>
                                 </div>
                             </section>
                             <section className="mt-6">
@@ -76,17 +93,26 @@ const CountryDetailsPage = () => {
                                     <p className="font-semibold">
                                         Top Level Domain:
                                     </p>
-                                    <p className="font-thin">{data.tld}</p>
+                                    <p className="font-thin">
+                                        {data.tld ? data.tld : "no data found"}
+                                    </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Currencies:</p>
                                     <p className="font-thin">
-                                        {data?.currencies[currencyCode].name}
+                                        {data && data?.currencies
+                                            ? data?.currencies[currencyCode]
+                                                  .name
+                                            : "no data found"}
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Languages</p>
-                                    <p>{data?.languages[languageCode]}</p>
+                                    <p>
+                                        {data && data?.languages
+                                            ? data?.languages[languageCode]
+                                            : "no data found"}
+                                    </p>
                                 </div>
                             </section>
                         </div>
@@ -104,7 +130,9 @@ const CountryDetailsPage = () => {
                                                 color: `${theme.theme.color}`,
                                             }}
                                         >
-                                            {borderCountries}
+                                            {borderCountries
+                                                ? borderCountries
+                                                : "no data found"}
                                         </p>
                                     )
                                 )

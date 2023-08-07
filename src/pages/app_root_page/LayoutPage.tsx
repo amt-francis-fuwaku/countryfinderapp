@@ -11,10 +11,6 @@ const LayoutPage = () => {
     //data context
     const theme = useThemeProvider();
     const countryData = useDataProvider();
-    console.log(
-        "🚀 ~ file: LayoutPage.tsx:14 ~ LayoutPage ~ countryData:",
-        countryData
-    );
 
     //get data from context
     const data = countryData?.data;

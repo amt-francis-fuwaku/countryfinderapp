@@ -15,21 +15,19 @@ const SearchBarComponent = () => {
 
     const [searchedCountry, setSearchedCountry] = useState("");
 
+    const getSearchedCountryData = (e: string) => {
+        setSearchedCountry(e.toLowerCase());
+    };
+
     const getFilteredByName = async () => {
-        if (searchedCountry) {
+        if (searchedCountry.toLocaleLowerCase().trim()) {
             const filteredData = await data?.filter((item: any) =>
                 item.name.common.toLowerCase().includes(searchedCountry.trim())
             );
             setData(filteredData);
-        } else if (!searchedCountry) {
+        } else {
             await countryData?.fetchData();
-            setData(data);
         }
-    };
-
-    const getSearchedCountryData = (e: string) => {
-        setSearchedCountry(e.toLowerCase());
-        getFilteredByName();
     };
 
     useEffect(() => {
