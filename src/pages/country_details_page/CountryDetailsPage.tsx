@@ -85,10 +85,8 @@ const CountryDetailsPage = () => {
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">
-                                        Languages:{" "}
-                                        {data?.languages[languageCode]}
-                                    </p>
+                                    <p className="font-semibold">Languages</p>
+                                    <p>{data?.languages[languageCode]}</p>
                                 </div>
                             </section>
                         </div>
