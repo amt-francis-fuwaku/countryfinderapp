@@ -28,7 +28,7 @@ const DataProvider = ({ children }: DataProviderProps) => {
             const response = await instance.get<Data[]>(`/all`);
             setData(response.data);
         } catch (error) {
-            throw new Error("No Data Found");
+            throw Error("No Data Found");
         }
     };
 

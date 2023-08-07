@@ -1,1 +1,8 @@
-export const dropDownList = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+export const dropDownList = [
+    "All Countries",
+    "Africa",
+    "Americas",
+    "Asia",
+    "Europe",
+    "Oceania",
+];

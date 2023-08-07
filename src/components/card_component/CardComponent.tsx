@@ -7,7 +7,6 @@ interface CardComponentProps {
 
 const CardComponent = ({ data }: CardComponentProps) => {
     const theme = useThemeProvider();
-    // console.log("🚀countryData:", data.capital, data.name.common);
     return (
         <div className={cardStyle} style={theme.theme}>
             <div className="h-40">

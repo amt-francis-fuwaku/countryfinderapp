@@ -25,7 +25,7 @@ place-items-center
  rounded-md 
 bg-white 
 w-[215px]
-h-[220px]
+h-[250px]
 px-4
 py-0
 ml-4 

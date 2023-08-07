@@ -28,4 +28,5 @@ w-full
 rounded-md 
 font-nunito
 sm:text-sm 
+lg:lg:w-[450px]
 focus:ring-1`);

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //component css style
 import { inputBarStyle, searchBarStyle } from "./searchbar_style";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDataProvider } from "../../context_data/useDataProvider";
 
 const SearchBarComponent = () => {
@@ -15,13 +15,14 @@ const SearchBarComponent = () => {
 
     const [searchedCountry, setSearchedCountry] = useState("");
 
-    const getFilteredByName = () => {
-        const filteredData = data?.filter((item: any) =>
-            item.name.common.toLowerCase().includes(searchedCountry.trim())
-        );
+    const getFilteredByName = async () => {
         if (searchedCountry) {
+            const filteredData = await data?.filter((item: any) =>
+                item.name.common.toLowerCase().includes(searchedCountry.trim())
+            );
             setData(filteredData);
         } else if (!searchedCountry) {
+            await countryData?.fetchData();
             setData(data);
         }
     };
@@ -30,6 +31,10 @@ const SearchBarComponent = () => {
         setSearchedCountry(e.toLowerCase());
         getFilteredByName();
     };
+
+    useEffect(() => {
+        getFilteredByName();
+    }, [searchedCountry]);
 
     return (
         <>

@@ -79,7 +79,6 @@ const CountryDetailsPage = () => {
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Languages:</p>
-                                    <p>{data.languages.names}</p>
                                 </div>
                             </section>
                         </div>
@@ -90,15 +89,15 @@ const CountryDetailsPage = () => {
                             {data && data.borders?.length > 0 ? (
                                 data.borders.map(
                                     (borderCountries: any, index: number) => (
-                                        <button
+                                        <p
                                             key={index}
-                                            className="mt-[5%] w-20 cursor-pointer shadow-lg py-2 rounded lg:w-32 lg:py-4"
+                                            className="mt-[5%] w-20  shadow-lg py-2 rounded lg:w-32 lg:py-4"
                                             style={{
                                                 color: `${theme.theme.color}`,
                                             }}
                                         >
-                                            <p>{borderCountries}</p>
-                                        </button>
+                                            {borderCountries}
+                                        </p>
                                     )
                                 )
                             ) : (
