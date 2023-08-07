@@ -4,9 +4,16 @@ import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { NavLink, useLocation } from "react-router-dom";
 
 const CountryDetailsPage = () => {
+    //provides data for the page
     const theme = useThemeProvider();
+    //use location to send data here for details
     const country = useLocation();
     const data = country?.state;
+
+    //obstruct the string code for the currency
+    const currencyCode = Object.keys(data?.currencies)[0];
+    const languageCode = Object.keys(data?.languages)[0];
+    console.log("🚀languageCode:", languageCode);
 
     return (
         <section className="mx-[10%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%]">
@@ -74,11 +81,14 @@ const CountryDetailsPage = () => {
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Currencies:</p>
                                     <p className="font-thin">
-                                        {data.currencies.names}
+                                        {data?.currencies[currencyCode].name}
                                     </p>
                                 </div>
                                 <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">Languages:</p>
+                                    <p className="font-semibold">
+                                        Languages:{" "}
+                                        {data?.languages[languageCode]}
+                                    </p>
                                 </div>
                             </section>
                         </div>
