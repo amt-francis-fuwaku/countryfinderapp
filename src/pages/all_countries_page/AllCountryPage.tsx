@@ -13,6 +13,7 @@ const AllCountryPage = () => {
     //get data from context
     const data = countryData?.data;
 
+    //shows loading animation when data is loading
     if (!data) {
         return (
             <div
@@ -39,11 +40,11 @@ const AllCountryPage = () => {
                 {data.length > 0 ? (
                     data?.map((country: Data, index: number) => (
                         <NavLink
-                            to={{ pathname: "details" }}
+                            to={`${country.name.common}`}
                             state={country}
                             key={index}
                         >
-                            <div className=" transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-75 ">
+                            <div className=" transition ease-in-out delay-75  lg:hover:-translate-y-1 lg:hover:scale-110 duration-75 ">
                                 <CardComponent data={country} />
                             </div>
                         </NavLink>

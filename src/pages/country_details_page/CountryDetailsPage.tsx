@@ -67,7 +67,7 @@ const CountryDetailsPage = () => {
                         src={data.flags.svg ? data.flags.svg : "no data found"}
                         alt={` this is the flag of ${data.name.common}`}
                     />
-                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-14 ">
+                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-14 lg:ml-32 ">
                         <p className="font-bold text-2xl">
                             {data.name.common
                                 ? data.name.common
