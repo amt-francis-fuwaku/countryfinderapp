@@ -6,4 +6,8 @@ export const cardStyle = ctl(`flex
  w-[264px]
  rounded-lg 
 shadow-lg 
-mb-12`);
+mb-12
+lg:w-[310px]
+lg:h-full
+
+`);

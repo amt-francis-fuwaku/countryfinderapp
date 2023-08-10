@@ -24,8 +24,8 @@ const FilterComponent = () => {
 
     //drop down data
     const [dropDown, setDropDown] = useState(true);
-    const storedValue = localStorage.getItem("filter");
-    const [selectedRegion, setSelectedRegion] = useState(storedValue);
+
+    const [selectedRegion, setSelectedRegion] = useState("");
     const toggleDropDownList = () => setDropDown(!dropDown); //toggles dropdown list
 
     //displays selected region to the user
@@ -37,7 +37,10 @@ const FilterComponent = () => {
 
     //filter to display the right filtered data
     const filteredData = async () => {
-        if (selectedRegion) {
+        await countryData.fetchData();
+        if (selectedRegion === "All Countries") {
+            await countryData.fetchData();
+        } else if (selectedRegion) {
             const filtered = data?.filter(
                 (region: any) => region?.region === selectedRegion
             );
@@ -47,7 +50,6 @@ const FilterComponent = () => {
 
     useEffect(() => {
         filteredData();
-        localStorage.setItem("filter", selectedRegion as string);
     }, [selectedRegion]);
 
     return (
@@ -58,9 +60,7 @@ const FilterComponent = () => {
                 onClick={toggleDropDownList}
             >
                 <div>
-                    <p>
-                        {selectedRegion ? selectedRegion : "Filter by Region"}
-                    </p>
+                    <p>{selectedRegion || "Filter by Region"}</p>
                 </div>
                 <div>
                     <FontAwesomeIcon

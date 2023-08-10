@@ -15,25 +15,25 @@ const SearchBarComponent = () => {
 
     const [searchedCountry, setSearchedCountry] = useState("");
 
-    const getSearchedCountryData = (e: string) => {
-        setSearchedCountry(e.toLowerCase());
+    const handleSearch = (e: any) => {
+        const value = e.currentTarget.value;
+        setSearchedCountry((prev) => (prev = value));
     };
 
-    const getFilteredByName = async () => {
-        if (searchedCountry.toLocaleLowerCase().trim()) {
-            const filteredData = await data?.filter((item: any) =>
+    const filtered = async () => {
+        if (searchedCountry) {
+            const filteredData = data?.filter((item: any) =>
                 item.name.common.toLowerCase().includes(searchedCountry.trim())
             );
             setData(filteredData);
-        } else {
-            await countryData?.fetchData();
+        } else if (!searchedCountry) {
+            countryData.fetchData();
         }
     };
 
     useEffect(() => {
-        getFilteredByName();
+        filtered();
     }, [searchedCountry]);
-
     return (
         <>
             <div className={searchBarStyle} style={theme.theme}>
@@ -46,12 +46,10 @@ const SearchBarComponent = () => {
                 </div>
                 <form>
                     <input
-                        onChange={(e) => {
-                            getSearchedCountryData(e.currentTarget.value);
-                        }}
+                        onChange={handleSearch}
                         value={searchedCountry}
                         type="text"
-                        placeholder="search for a country..."
+                        placeholder="search for a country....."
                         className={inputBarStyle}
                         style={theme.theme}
                     />

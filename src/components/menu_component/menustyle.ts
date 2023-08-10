@@ -11,12 +11,16 @@ fixed
 left-0
  right-0
  h-20
-lg:pl-36
+lg:pl-[152px]
 lg:text-[24px]
 `);
 
 export const darkModeTextStyle = ctl(
-    `mr-4 font-normal text-[12px] cursor-pointer`
+    `mr-4
+font-normal
+text-[12px]
+cursor-pointer
+lg:pr-[140px]`
 );
 
 export const menuTextStyle = ctl(`font-bold`);

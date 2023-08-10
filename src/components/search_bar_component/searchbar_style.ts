@@ -4,6 +4,7 @@ export const searchBarStyle = ctl(`flex flex-row
 justify-start 
 place-items-center
  h-14
+w-[360px]
  rounded-md 
 fixed
 p-2 
@@ -19,12 +20,13 @@ lg:ml-40`);
 export const inputBarStyle = ctl(`ml-0 
 px-3 
 py-2 
+bg-red
 bg-white
  placeholder-slate-300 
 focus:outline-none 
 focus:ring-slate-100 
 block 
-w-full 
+w-[260px]
 rounded-md 
 font-nunito
 sm:text-sm 

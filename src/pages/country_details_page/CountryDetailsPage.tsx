@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { NavLink, useLocation } from "react-router-dom";
+import { useDataProvider } from "../../context_data/useDataProvider";
+import { Data } from "../../context_data/DataProvider";
 
 const CountryDetailsPage = () => {
     //provides data for the page
@@ -9,17 +11,38 @@ const CountryDetailsPage = () => {
     //use location to send data here for details
     const country = useLocation();
     const data = country?.state;
+    const countryData = useDataProvider();
+    countryData.fetchData();
+    const borderData = countryData.data;
 
     //obstruct the string code for the currency
     const currencyCode = Object.keys(data?.currencies)[0];
-    const languageCode = Object.keys(data?.languages)[0];
+
+    const languageCode = data?.languages ? Object.keys(data?.languages) : [];
+
+    // get the cca3 the border countries
+    const borders = data.borders
+        ? data.borders.map((border: string) => {
+              return border;
+          })
+        : [];
+
+    console.log("border length", borders.length);
+    //get the names of the bordered countries
+    const borderCountries = borderData?.filter((country: Data) => {
+        for (let index = 0; index < borders.length; index++) {
+            if (country.cca3.includes(borders[index])) {
+                return true; // Return true if the country is in the borders list
+            }
+        }
+    });
 
     return (
-        <section className="mx-[10%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%]">
-            <div className="md:-mt-14  ">
+        <section className="mx-[5%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%] lg:mx-[6%]">
+            <div className="md:-mt-14">
                 <NavLink to="/">
                     <button
-                        className="flex flex-row  justify-around my-5 ml-[1%] w-28 cursor-pointer shadow-lg py-2 px-4 rounded md:fixed md:top-[25%] lg:-mt-20"
+                        className="flex flex-row  justify-around my-5 ml-[2%] w-28 cursor-pointer shadow-lg py-2 px-4 rounded md:fixed md:top-[25%] lg:-mt-20"
                         style={{ color: `${theme.theme.color}` }}
                     >
                         <div>
@@ -108,36 +131,45 @@ const CountryDetailsPage = () => {
                                 </div>
                                 <div className="flex gap-3  py-1">
                                     <p className="font-semibold">Languages</p>
-                                    <p>
-                                        {data && data?.languages
-                                            ? data?.languages[languageCode]
-                                            : "no data found"}
-                                    </p>
+
+                                    {data && languageCode
+                                        ? languageCode.map(
+                                              (
+                                                  language: any,
+                                                  index: number
+                                              ) => (
+                                                  <p key={index}>
+                                                      {language} ,
+                                                  </p>
+                                              )
+                                          )
+                                        : "no language found"}
                                 </div>
                             </section>
                         </div>
                         <section className="grid mt-10  ">
                             <p className="font-extrabold ">Border Countries</p>
                         </section>
-                        <section className=" grid grid-cols-3 mt-6 pb-10">
-                            {data && data.borders?.length > 0 ? (
-                                data.borders.map(
+                        <section className=" grid grid-cols-3 mt-6 pb-10 ">
+                            {borders.length > 0 ? (
+                                borderCountries.map(
                                     (borderCountries: any, index: number) => (
                                         <p
                                             key={index}
-                                            className="mt-[5%] w-20  shadow-lg py-2 rounded lg:w-32 lg:py-4"
+                                            className="mt-[5%] w-ful shadow-lg p-4 rounded lg:w-full lg:p-4"
                                             style={{
                                                 color: `${theme.theme.color}`,
                                             }}
                                         >
-                                            {borderCountries
-                                                ? borderCountries
-                                                : "no data found"}
+                                            {borderCountries.name.common}
                                         </p>
                                     )
                                 )
                             ) : (
-                                <p>No data available.</p>
+                                <p className="text-lg">
+                                    No border Country
+                                    <span></span>
+                                </p>
                             )}
                         </section>
                     </figcaption>

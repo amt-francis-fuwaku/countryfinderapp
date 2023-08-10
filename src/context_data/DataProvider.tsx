@@ -8,7 +8,7 @@ interface DataProviderProps {
     children: ReactNode;
 }
 
-interface Data {
+export interface Data {
     [key: string]: any;
 }
 
