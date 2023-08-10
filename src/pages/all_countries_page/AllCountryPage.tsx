@@ -39,11 +39,13 @@ const AllCountryPage = () => {
                 {data.length > 0 ? (
                     data?.map((country: Data, index: number) => (
                         <NavLink
-                            to={{ pathname: "/details" }}
+                            to={{ pathname: "details" }}
                             state={country}
                             key={index}
                         >
-                            <CardComponent data={country} />
+                            <div className=" transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-75 ">
+                                <CardComponent data={country} />
+                            </div>
                         </NavLink>
                     ))
                 ) : (

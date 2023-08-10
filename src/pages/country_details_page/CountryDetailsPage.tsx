@@ -12,6 +12,7 @@ const CountryDetailsPage = () => {
     //use location to send data here for details
     const country = useLocation();
     const data = country?.state;
+    console.log("🚀 ~ file: data:", data);
     const countryData = useDataProvider();
     const borderData = countryData.data;
 
@@ -19,6 +20,8 @@ const CountryDetailsPage = () => {
     const currencyCode = Object.keys(data?.currencies)[0];
 
     const languageCode = Object.keys(data?.languages);
+
+    console.log("🚀languageCode:", languageCode);
 
     // get the cca3 the border countries
     const borders: string[] = data.borders
@@ -60,11 +63,11 @@ const CountryDetailsPage = () => {
                 </NavLink>
                 <figure className=" md:h-[100%] lg:flex lg:gap-32 lg:my-20 lg:p-10">
                     <img
-                        className="rounded-lg  md:w-[50%] md:h-[50%]"
+                        className="rounded-lg  md:w-[50%] md:h-[50%] lg:w-[559px] lg:h-[483px]"
                         src={data.flags.svg ? data.flags.svg : "no data found"}
                         alt={` this is the flag of ${data.name.common}`}
                     />
-                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-0 ">
+                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-14 ">
                         <p className="font-bold text-2xl">
                             {data.name.common
                                 ? data.name.common
@@ -143,7 +146,7 @@ const CountryDetailsPage = () => {
                                                   index: number
                                               ) => (
                                                   <p key={index}>
-                                                      {language} ,
+                                                      {`${data.languages[language]},`}
                                                   </p>
                                               )
                                           )
@@ -153,14 +156,16 @@ const CountryDetailsPage = () => {
                         </div>
                         <section className="mt-10 lg:mt-20 ">
                             <p className="font-extrabold ">Border Countries:</p>
-                            <section className=" grid grid-cols-3 mt-6 pb-10 lg:-mt-10 lg:ml-40 lg:gap-x-24 ">
+                            <section className=" grid grid-cols-3 mt-6 pb-10 lg:-mt-10 lg:ml-40 lg:gap-x-4 ">
                                 {borders.length > 0 ? (
                                     borderCountries.map(
                                         (
                                             borderCountries: Data,
                                             index: number
                                         ) => (
-                                            <p
+                                            <NavLink
+                                                to={{ pathname: "" }}
+                                                state={borderCountries}
                                                 key={index}
                                                 className="mt-[5%] w-ful shadow-lg p-4 rounded   lg:p-3 lg:h-fit lg:w-[190px]"
                                                 style={{
@@ -168,7 +173,7 @@ const CountryDetailsPage = () => {
                                                 }}
                                             >
                                                 {borderCountries.name.common}
-                                            </p>
+                                            </NavLink>
                                         )
                                     )
                                 ) : (

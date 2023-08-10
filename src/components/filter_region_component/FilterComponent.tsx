@@ -75,7 +75,7 @@ const FilterComponent = () => {
                         <li
                             key={index}
                             value={index}
-                            className="py-2"
+                            className="py-2 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-10 duration-10"
                             onClick={(e) =>
                                 showSelectedRegion(e.currentTarget.value)
                             }
