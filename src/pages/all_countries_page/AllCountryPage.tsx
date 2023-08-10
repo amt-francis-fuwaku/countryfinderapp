@@ -4,6 +4,7 @@ import SearchBarComponent from "../../components/search_bar_component/SearchBarC
 import FilterComponent from "../../components/filter_region_component/FilterComponent";
 import { useDataProvider } from "../../context_data/useDataProvider";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
+import { Data } from "../../context_data/DataProvider";
 
 const AllCountryPage = () => {
     const countryData = useDataProvider();
@@ -34,9 +35,9 @@ const AllCountryPage = () => {
             <SearchBarComponent />
             <FilterComponent />
 
-            <div className="grid mt-14 ml-14 grid-cols-1 gap-[120px] md:grid-cols-2 lg:grid-cols-4 lg:mt-10 lg:mx-[160px]">
+            <div className="grid mt-14 ml-[15%] grid-cols-1 gap-[120px] md:grid-cols-2 lg:grid-cols-4 lg:mt-10 lg:mx-[160px]">
                 {data.length > 0 ? (
-                    data?.map((country: any, index: number) => (
+                    data?.map((country: Data, index: number) => (
                         <NavLink
                             to={{ pathname: "/details" }}
                             state={country}
@@ -46,8 +47,8 @@ const AllCountryPage = () => {
                         </NavLink>
                     ))
                 ) : (
-                    <div className=" -m-10 p-[10px]   max-w-sm w-full lg:mt-[120px] ">
-                        <div className="animate-pulse my-20 flex space-x-4 lg:my-20">
+                    <div className=" -m-10 p-[10px] max-w-sm w-full lg:mt-[120px] lg:ml-0 lg:w-96">
+                        <div className="animate-pulse my-32 flex space-x-4 lg:my-20">
                             <div className="flex-1 space-y-6 py-1">
                                 <div className=" rounded">No Country Found</div>
                                 <div className="space-y-3">

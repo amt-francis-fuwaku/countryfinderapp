@@ -4,7 +4,7 @@ export const searchBarStyle = ctl(`flex flex-row
 justify-start 
 place-items-center
  h-14
-w-[360px]
+w-[90%]
  rounded-md 
 fixed
 p-2 
@@ -26,7 +26,7 @@ bg-white
 focus:outline-none 
 focus:ring-slate-100 
 block 
-w-[260px]
+w-[250px]
 rounded-md 
 font-nunito
 sm:text-sm 

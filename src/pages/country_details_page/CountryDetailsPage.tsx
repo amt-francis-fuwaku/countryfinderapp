@@ -4,6 +4,7 @@ import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { NavLink, useLocation } from "react-router-dom";
 import { useDataProvider } from "../../context_data/useDataProvider";
 import { Data } from "../../context_data/DataProvider";
+import { useEffect } from "react";
 
 const CountryDetailsPage = () => {
     //provides data for the page
@@ -12,22 +13,20 @@ const CountryDetailsPage = () => {
     const country = useLocation();
     const data = country?.state;
     const countryData = useDataProvider();
-    countryData.fetchData();
     const borderData = countryData.data;
 
     //obstruct the string code for the currency
     const currencyCode = Object.keys(data?.currencies)[0];
 
-    const languageCode = data?.languages ? Object.keys(data?.languages) : [];
+    const languageCode = Object.keys(data?.languages);
 
     // get the cca3 the border countries
-    const borders = data.borders
+    const borders: string[] = data.borders
         ? data.borders.map((border: string) => {
               return border;
           })
         : [];
 
-    console.log("border length", borders.length);
     //get the names of the bordered countries
     const borderCountries = borderData?.filter((country: Data) => {
         for (let index = 0; index < borders.length; index++) {
@@ -36,6 +35,11 @@ const CountryDetailsPage = () => {
             }
         }
     });
+
+    useEffect(() => {
+        countryData.fetchData();
+        return () => {};
+    }, []);
 
     return (
         <section className="mx-[5%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%] lg:mx-[6%]">
@@ -58,15 +62,15 @@ const CountryDetailsPage = () => {
                     <img
                         className="rounded-lg  md:w-[50%] md:h-[50%]"
                         src={data.flags.svg ? data.flags.svg : "no data found"}
-                        alt="Description of the image"
+                        alt={` this is the flag of ${data.name.common}`}
                     />
-                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 ">
+                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-0 ">
                         <p className="font-bold text-2xl">
                             {data.name.common
                                 ? data.name.common
                                 : "nodata found"}
                         </p>
-                        <div className="lg:flex lg:gap-32">
+                        <div className="lg:flex lg:gap-64">
                             <section className="mt-4 ">
                                 <div className="flex gap-3  py-1 ">
                                     <p className="font-semibold">
@@ -147,30 +151,32 @@ const CountryDetailsPage = () => {
                                 </div>
                             </section>
                         </div>
-                        <section className="grid mt-10  ">
-                            <p className="font-extrabold ">Border Countries</p>
-                        </section>
-                        <section className=" grid grid-cols-3 mt-6 pb-10 ">
-                            {borders.length > 0 ? (
-                                borderCountries.map(
-                                    (borderCountries: any, index: number) => (
-                                        <p
-                                            key={index}
-                                            className="mt-[5%] w-ful shadow-lg p-4 rounded lg:w-full lg:p-4"
-                                            style={{
-                                                color: `${theme.theme.color}`,
-                                            }}
-                                        >
-                                            {borderCountries.name.common}
-                                        </p>
+                        <section className="mt-10 lg:mt-20 ">
+                            <p className="font-extrabold ">Border Countries:</p>
+                            <section className=" grid grid-cols-3 mt-6 pb-10 lg:-mt-10 lg:ml-40 lg:gap-x-24 ">
+                                {borders.length > 0 ? (
+                                    borderCountries.map(
+                                        (
+                                            borderCountries: Data,
+                                            index: number
+                                        ) => (
+                                            <p
+                                                key={index}
+                                                className="mt-[5%] w-ful shadow-lg p-4 rounded   lg:p-3 lg:h-fit lg:w-[190px]"
+                                                style={{
+                                                    color: `${theme.theme.color}`,
+                                                }}
+                                            >
+                                                {borderCountries.name.common}
+                                            </p>
+                                        )
                                     )
-                                )
-                            ) : (
-                                <p className="text-lg">
-                                    No border Country
-                                    <span></span>
-                                </p>
-                            )}
+                                ) : (
+                                    <p className="text-lg lg:w-60 lg:mt-4">
+                                        No border Country Found
+                                    </p>
+                                )}
+                            </section>
                         </section>
                     </figcaption>
                 </figure>
