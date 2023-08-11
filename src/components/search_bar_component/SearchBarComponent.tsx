@@ -17,7 +17,7 @@ const SearchBarComponent = () => {
 
     const handleSearch = (e: any) => {
         const value = e.currentTarget.value;
-        setSearchedCountry((prev: string) => (prev = value));
+        setSearchedCountry(value);
     };
 
     const filtered = async () => {
