@@ -9,19 +9,18 @@ import { useEffect } from "react";
 const CountryDetailsPage = () => {
     //provides data for the page
     const theme = useThemeProvider();
-    //use location to send data here for details
     const country = useLocation();
-    const data = country?.state;
-    console.log("🚀 ~ file: data:", data);
+
     const countryData = useDataProvider();
+
+    const data = country?.state;
     const borderData = countryData.data;
 
-    //obstruct the string code for the currency
-    const currencyCode = Object.keys(data?.currencies)[0];
-
-    const languageCode = Object.keys(data?.languages);
-
-    console.log("🚀languageCode:", languageCode);
+    //obstruct the object keys
+    const currencyCode = data?.currencies
+        ? Object.keys(data?.currencies)[0]
+        : "";
+    const languageCode = data?.languages ? Object.keys(data?.languages) : [];
 
     // get the cca3 the border countries
     const borders: string[] = data.borders
@@ -31,7 +30,7 @@ const CountryDetailsPage = () => {
         : [];
 
     //get the names of the bordered countries
-    const borderCountries = borderData?.filter((country: Data) => {
+    const borderCountries: Data[] = borderData?.filter((country: Data) => {
         for (let index = 0; index < borders.length; index++) {
             if (country.cca3.includes(borders[index])) {
                 return true; // Return true if the country is in the borders list
@@ -68,7 +67,7 @@ const CountryDetailsPage = () => {
                         alt={` this is the flag of ${data.name.common}`}
                     />
                     <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-14 lg:ml-32 ">
-                        <p className="font-bold text-2xl">
+                        <p className="font-bold text-[32px]">
                             {data.name.common
                                 ? data.name.common
                                 : "nodata found"}
@@ -136,8 +135,14 @@ const CountryDetailsPage = () => {
                                             : "no data found"}
                                     </p>
                                 </div>
-                                <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">Languages</p>
+                                <div
+                                    className={
+                                        languageCode.length > 2
+                                            ? " gap-3  py-1"
+                                            : "flex gap-3  py-1"
+                                    }
+                                >
+                                    <p className="font-bold">Languages:</p>
 
                                     {data && languageCode
                                         ? languageCode.map(

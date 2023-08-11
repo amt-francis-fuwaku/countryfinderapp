@@ -17,11 +17,12 @@ const SearchBarComponent = () => {
 
     const handleSearch = (e: any) => {
         const value = e.currentTarget.value;
-        setSearchedCountry((prev) => (prev = value));
+        setSearchedCountry((prev: string) => (prev = value));
     };
 
     const filtered = async () => {
-        if (searchedCountry) {
+        const counter = searchedCountry.length;
+        if (counter) {
             const filteredData = data?.filter((item: any) =>
                 item.name.common.toLowerCase().includes(searchedCountry.trim())
             );
@@ -33,7 +34,7 @@ const SearchBarComponent = () => {
 
     useEffect(() => {
         filtered();
-    }, [searchedCountry]);
+    }, [searchedCountry.length]);
     return (
         <>
             <div className={searchBarStyle} style={theme.theme}>

@@ -11,5 +11,7 @@
         "titleBar.activeBackground": "#00000000",
         "titleBar.inactiveBackground": "#00000099"
     },
-    "peacock.color": "#0000"
+    "peacock.color": "#0000",
+    "tabnine.logEngine": true,
+    "tabnine.receiveBetaChannelUpdates": true
 }
