@@ -16,7 +16,7 @@ cursor-pointer
 fixed
 lg:right-24
 lg:top-24
-lg:mt-2
+lg:mt-4
 lg:mr-[3.30%]`);
 
 export const dropDownListStyle = ctl(` flex-row 
@@ -36,7 +36,7 @@ cursor-pointer
 fixed
 lg:right-24
 lg:top-24
-lg:mt-[70px]
+lg:mt-[80px]
 lg:mr-32
 lg:mr-48
 lg:mr-[3.30%]`);

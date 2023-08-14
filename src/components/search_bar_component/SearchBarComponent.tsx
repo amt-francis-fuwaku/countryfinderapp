@@ -16,25 +16,26 @@ const SearchBarComponent = () => {
     const [searchedCountry, setSearchedCountry] = useState("");
 
     const handleSearch = (e: any) => {
+        e.preventDefault();
         const value = e.currentTarget.value;
         setSearchedCountry(value);
     };
 
     const filtered = async () => {
-        const counter = searchedCountry.length;
-        if (counter) {
+        if (searchedCountry) {
             const filteredData = data?.filter((item: any) =>
                 item.name.common.toLowerCase().includes(searchedCountry.trim())
             );
             setData(filteredData);
-        } else if (!searchedCountry) {
+        } else if (!searchedCountry || searchedCountry.trim() === "") {
             countryData.fetchData();
+            setData(data);
         }
     };
 
     useEffect(() => {
         filtered();
-    }, [searchedCountry.length]);
+    }, [searchedCountry]);
     return (
         <>
             <div className={searchBarStyle} style={theme.theme}>
