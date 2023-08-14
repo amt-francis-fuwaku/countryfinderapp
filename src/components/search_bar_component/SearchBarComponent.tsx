@@ -1,13 +1,20 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { debounce } from "lodash";
+import { useEffect, useState } from "react";
 
 //component css style
 import { inputBarStyle, searchBarStyle } from "./searchbar_style";
+
+// context data
 import { useThemeProvider } from "../../context_data/useThemeProvider";
-import { useEffect, useState } from "react";
 import { useDataProvider } from "../../context_data/useDataProvider";
 
+//data types
+import { CountryData } from "../../utils/data";
+
 const SearchBarComponent = () => {
+    //defines and set data
     const theme = useThemeProvider();
     const countryData = useDataProvider();
     const data = countryData?.data;
@@ -15,16 +22,20 @@ const SearchBarComponent = () => {
 
     const [searchedCountry, setSearchedCountry] = useState("");
 
-    const handleSearch = (e: any) => {
+    //set the searched term
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        const value = e.currentTarget.value;
-        setSearchedCountry(value);
+        setSearchedCountry(e?.currentTarget.value);
     };
 
+    //filter the data for the searched country
     const filtered = async () => {
         if (searchedCountry) {
-            const filteredData = data?.filter((item: any) =>
-                item.name.common.toLowerCase().includes(searchedCountry.trim())
+            const filteredData: CountryData = await data?.filter(
+                (item: CountryData) =>
+                    item.name.common
+                        .toLowerCase()
+                        .includes(searchedCountry.trim())
             );
             setData(filteredData);
         } else if (!searchedCountry || searchedCountry.trim() === "") {
@@ -34,7 +45,14 @@ const SearchBarComponent = () => {
     };
 
     useEffect(() => {
-        filtered();
+        //use debounce for efficiency
+        const deb = debounce(() => filtered(), 500);
+        deb();
+
+        //cancel debounce
+        return () => {
+            deb.cancel();
+        };
     }, [searchedCountry]);
     return (
         <>
