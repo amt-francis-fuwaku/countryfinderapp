@@ -1,4 +1,4 @@
-export interface Data {
+export interface CountryData {
     name: Name;
     tld: string[];
     cca2: string;
@@ -35,40 +35,40 @@ export interface Data {
     postalCode: PostalCode;
 }
 
-export interface Name {
+interface Name {
     common: string;
     official: string;
     nativeName: NativeName;
 }
 
-export interface NativeName {
+interface NativeName {
     ara: Ara;
 }
 
-export interface Ara {
+interface Ara {
     official: string;
     common: string;
 }
 
-export interface Currencies {
+interface Currencies {
     SAR: Sar;
 }
 
-export interface Sar {
+interface Sar {
     name: string;
     symbol: string;
 }
 
-export interface Idd {
+interface Idd {
     root: string;
     suffixes: string[];
 }
 
-export interface Languages {
+interface Languages {
     ara: string;
 }
 
-export interface Translations {
+interface Translations {
     ara: Ara2;
     bre: Bre;
     ces: Ces;
@@ -96,132 +96,132 @@ export interface Translations {
     zho: Zho;
 }
 
-export interface Ara2 {
+interface Ara2 {
     official: string;
     common: string;
 }
 
-export interface Bre {
+interface Bre {
     official: string;
     common: string;
 }
 
-export interface Ces {
+interface Ces {
     official: string;
     common: string;
 }
 
-export interface Cym {
+interface Cym {
     official: string;
     common: string;
 }
 
-export interface Deu {
+interface Deu {
     official: string;
     common: string;
 }
 
-export interface Est {
+interface Est {
     official: string;
     common: string;
 }
 
-export interface Fin {
+interface Fin {
     official: string;
     common: string;
 }
 
-export interface Fra {
+interface Fra {
     official: string;
     common: string;
 }
 
-export interface Hrv {
+interface Hrv {
     official: string;
     common: string;
 }
 
-export interface Hun {
+interface Hun {
     official: string;
     common: string;
 }
 
-export interface Ita {
+interface Ita {
     official: string;
     common: string;
 }
 
-export interface Jpn {
+interface Jpn {
     official: string;
     common: string;
 }
 
-export interface Kor {
+interface Kor {
     official: string;
     common: string;
 }
 
-export interface Nld {
+interface Nld {
     official: string;
     common: string;
 }
 
-export interface Per {
+interface Per {
     official: string;
     common: string;
 }
 
-export interface Pol {
+interface Pol {
     official: string;
     common: string;
 }
 
-export interface Por {
+interface Por {
     official: string;
     common: string;
 }
 
-export interface Rus {
+interface Rus {
     official: string;
     common: string;
 }
 
-export interface Slk {
+interface Slk {
     official: string;
     common: string;
 }
 
-export interface Spa {
+interface Spa {
     official: string;
     common: string;
 }
 
-export interface Srp {
+interface Srp {
     official: string;
     common: string;
 }
 
-export interface Swe {
+interface Swe {
     official: string;
     common: string;
 }
 
-export interface Tur {
+interface Tur {
     official: string;
     common: string;
 }
 
-export interface Urd {
+interface Urd {
     official: string;
     common: string;
 }
 
-export interface Zho {
+interface Zho {
     official: string;
     common: string;
 }
 
-export interface Demonyms {
+interface Demonyms {
     eng: Eng;
     fra: Fra2;
 }
@@ -261,7 +261,7 @@ export interface CapitalInfo {
     latlng: number[];
 }
 
-export interface PostalCode {
+interface PostalCode {
     format: string;
     regex: string;
 }
