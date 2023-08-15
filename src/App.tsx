@@ -5,7 +5,7 @@ import MenuComponent from "./components/menu_component/MenuComponent";
 
 function App() {
     return (
-        <div>
+        <div className="overflow-auto">
             <MenuComponent />
             <RouterProvider router={router} />
         </div>

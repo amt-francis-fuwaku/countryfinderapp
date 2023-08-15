@@ -2,25 +2,16 @@ import ctl from "@netlify/classnames-template-literals";
 
 export const menuStyle = ctl(`flex 
 justify-between
-z-10
+z-100
  shadow-md
  m-0 
+top-0;
+left-0;
 bg-white 
 fixed
- top-0 
-left-0
- right-0
- h-20
-lg:pl-[152px]
+pl-[16px]
+pr-[16px]
+ h-[80px]
+w-[100%]
 lg:text-[24px]
 `);
-
-export const darkModeTextStyle = ctl(
-    `mr-4
-font-normal
-text-[12px]
-cursor-pointer
-lg:pr-[140px]`
-);
-
-export const menuTextStyle = ctl(`font-bold`);

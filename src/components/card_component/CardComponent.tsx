@@ -1,15 +1,18 @@
+import { Data } from "../../context_data/DataProvider";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
-import { cardStyle } from "./cardstyle";
 
 interface CardComponentProps {
-    data: any;
+    data: Data;
 }
 
 const CardComponent = ({ data }: CardComponentProps) => {
     const theme = useThemeProvider();
     return (
-        <div className={cardStyle} style={theme.theme}>
-            <div className="h-48">
+        <div
+            className="ml-[56px] mr-[56px] rounded-md bg-white shadow-lg mb-[40px]"
+            style={theme.theme}
+        >
+            <div className="">
                 <img
                     src={data?.flags?.svg}
                     alt={data?.flags?.alt}

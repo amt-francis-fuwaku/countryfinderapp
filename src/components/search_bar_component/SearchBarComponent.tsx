@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { debounce } from "lodash";
 import { useEffect, useState } from "react";
 
-//component css style
-import { inputBarStyle, searchBarStyle } from "./searchbar_style";
-
 // context data
 import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { useDataProvider } from "../../context_data/useDataProvider";
@@ -56,24 +53,26 @@ const SearchBarComponent = () => {
     }, [searchedCountry]);
     return (
         <>
-            <div className={searchBarStyle} style={theme.theme}>
-                <div className="m-8 ">
+            <div
+                className="flex flex-row justify-center items-center  h-[48px] rounded-md bg-white shadow-lg ml-[16px] mr-[16px] lg:h-[56px] lg:w-[480px]"
+                style={theme.theme}
+            >
+                <div>
                     <FontAwesomeIcon
                         icon={faMagnifyingGlass}
                         size="lg"
                         style={{ color: `${theme.theme.color}` }}
+                        className="px-[25px]"
                     />
                 </div>
-                <form>
-                    <input
-                        onChange={handleSearch}
-                        value={searchedCountry}
-                        type="text"
-                        placeholder="search for a country....."
-                        className={inputBarStyle}
-                        style={theme.theme}
-                    />
-                </form>
+                <input
+                    onChange={handleSearch}
+                    value={searchedCountry}
+                    type="text"
+                    placeholder="search for a country....."
+                    style={{ ...theme.theme, width: "100%" }}
+                    className="focus:ring-0 placeholder-slate-300  rounded-r-md focus:ring-slate-100 text-xs  focus:outline-none"
+                />
             </div>
         </>
     );

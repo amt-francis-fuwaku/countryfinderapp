@@ -31,7 +31,9 @@ const LayoutPage = () => {
 
     return (
         <main style={theme.theme}>
-            <Outlet />
+            <>
+                <Outlet />
+            </>
         </main>
     );
 };

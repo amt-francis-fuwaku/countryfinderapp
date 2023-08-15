@@ -24,20 +24,20 @@ export const DataProvider = createContext<ContextProviderValue | null>(null);
 
 const ThemeProvider = ({ children }: ContextComponentProps) => {
     const themeData: Theme = {
-        light: { background: "#FAFAFA", color: "black" },
-        dark: { background: "#2B3844", color: "white" },
+        Light: { background: "#FAFAFA", color: "black" },
+        Dark: { background: "#2B3844", color: "white" },
     };
 
     // Get the theme from local storage or use the default theme
     const storedTheme = localStorage.getItem("theme");
-    const initialTheme: string = storedTheme ? storedTheme : "light";
+    const initialTheme: string = storedTheme ? storedTheme : "Light";
 
     // Stores theme value
     const [theme, setTheme] = useState<keyof Theme>(initialTheme); // Fix the initial state
 
     // Changes theme
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+        setTheme((prevTheme) => (prevTheme === "Dark" ? "Light" : "Dark"));
     };
 
     // Update the local storage when the theme changes

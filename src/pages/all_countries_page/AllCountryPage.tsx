@@ -29,14 +29,11 @@ const AllCountryPage = () => {
     }
 
     return (
-        <section
-            className="py-56 h-full lg:h-full lg:pb-[25%]"
-            style={theme.theme}
-        >
+        <section style={theme.theme} className="pt-[100px] ">
             <SearchBarComponent />
             <FilterComponent />
 
-            <div className="grid mt-14 ml-[15%] grid-cols-1 gap-[120px] md:grid-cols-2 lg:grid-cols-4 lg:mt-10 lg:mx-[160px]">
+            <div className="mt-10">
                 {data.length > 0 ? (
                     data?.map((country: Data, index: number) => (
                         <NavLink
@@ -44,9 +41,7 @@ const AllCountryPage = () => {
                             state={country}
                             key={index}
                         >
-                            <div className=" transition ease-in-out delay-75  lg:hover:-translate-y-1 lg:hover:scale-110 duration-75 ">
-                                <CardComponent data={country} />
-                            </div>
+                            <CardComponent data={country} />
                         </NavLink>
                     ))
                 ) : (
