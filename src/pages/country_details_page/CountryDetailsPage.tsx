@@ -44,154 +44,160 @@ const CountryDetailsPage = () => {
     }, []);
 
     return (
-        <section className="mx-[5%] pt-14  mt-9 md:mt-20  lg:h-screen lg:py-[10%] lg:mx-[6%]">
-            <div className="md:-mt-14">
-                <NavLink to="/">
-                    <button
-                        className="flex flex-row  justify-around my-5 ml-[2%] w-28 cursor-pointer shadow-lg py-2 px-4 rounded md:fixed md:top-[25%] lg:-mt-20"
+        <div className="flex flex-col md:flex-row md:w-fit md:h-fit">
+            <section className="flex flex-col mx-[20px]  md:flex-col md:h-[944px]  ">
+                <NavLink
+                    to="/"
+                    className="flex flex-row justify-around  mt-[40px]  w-[104px] h-[42px] cursor-pointer shadow-md  rounded "
+                    style={{ color: `${theme.theme.color}` }}
+                >
+                    <FontAwesomeIcon
+                        icon={faArrowLeft}
                         style={{ color: `${theme.theme.color}` }}
-                    >
-                        <div>
-                            <FontAwesomeIcon
-                                icon={faArrowLeft}
-                                style={{ color: `${theme.theme.color}` }}
-                            />
-                        </div>
-                        <p>Back</p>
-                    </button>
-                </NavLink>
-                <figure className=" md:h-[100%] lg:flex lg:gap-32 lg:my-20 lg:p-10">
-                    <img
-                        className="rounded-lg  md:w-[50%] md:h-[50%] lg:w-[559px] lg:h-[483px]"
-                        src={data.flags.svg ? data.flags.svg : "no data found"}
-                        alt={` this is the flag of ${data.name.common}`}
+                        className="self-center"
                     />
-                    <figcaption className="mt-10 md:h-[50%] md:-mt-10 lg:mt-14 lg:ml-32 ">
-                        <p className="font-bold text-[32px]">
-                            {data.name.common
-                                ? data.name.common
-                                : "nodata found"}
-                        </p>
-                        <div className="lg:flex lg:gap-64">
-                            <section className="mt-4 ">
-                                <div className="flex gap-3  py-1 ">
-                                    <p className="font-semibold">
-                                        Native Name:
-                                    </p>
-                                    <p className="font-thin">
-                                        {data.name.common
-                                            ? data.name.common
-                                            : "no data found"}
-                                    </p>
-                                </div>
-                                <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">Population:</p>
-                                    <p className="font-thin">
-                                        {data.population
-                                            ? data.population.toLocaleString()
-                                            : "no data found"}
-                                    </p>
-                                </div>
-                                <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">Region:</p>
-                                    <p className="font-thin">
-                                        {data.region
-                                            ? data.region
-                                            : "no data found"}
-                                    </p>
-                                </div>
-                                <div className="flex gap-3 py-1 ">
-                                    <p className="font-semibold">Sub Region:</p>
-                                    <p className="font-thin">
-                                        {data.subregion
-                                            ? data.subregion
-                                            : "no data found"}
-                                    </p>
-                                </div>
-                                <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">Capital:</p>
-                                    <p className="font-thin">
-                                        {data.capital
-                                            ? data.capital
-                                            : "no data found"}
-                                    </p>
-                                </div>
-                            </section>
-                            <section className="mt-6">
-                                <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">
-                                        Top Level Domain:
-                                    </p>
-                                    <p className="font-thin">
-                                        {data.tld ? data.tld : "no data found"}
-                                    </p>
-                                </div>
-                                <div className="flex gap-3  py-1">
-                                    <p className="font-semibold">Currencies:</p>
-                                    <p className="font-thin">
-                                        {data && data?.currencies
-                                            ? data?.currencies[currencyCode]
-                                                  .name
-                                            : "no data found"}
-                                    </p>
-                                </div>
-                                <div
-                                    className={
-                                        languageCode.length > 2
-                                            ? " gap-3  py-1"
-                                            : "flex gap-3  py-1"
-                                    }
-                                >
-                                    <p className="font-bold">Languages:</p>
 
-                                    {data && languageCode
-                                        ? languageCode.map(
-                                              (
-                                                  language: any,
-                                                  index: number
-                                              ) => (
-                                                  <p key={index}>
-                                                      {`${data.languages[language]},`}
-                                                  </p>
-                                              )
-                                          )
-                                        : "no language found"}
-                                </div>
-                            </section>
-                        </div>
-                        <section className="mt-10 lg:mt-20 ">
-                            <p className="font-extrabold ">Border Countries:</p>
-                            <section className=" grid grid-cols-3 mt-6 pb-10 lg:-mt-10 lg:ml-40 lg:gap-x-4 ">
-                                {borders.length > 0 ? (
-                                    borderCountries.map(
-                                        (
-                                            borderCountries: Data,
-                                            index: number
-                                        ) => (
-                                            <NavLink
-                                                to={{ pathname: "" }}
-                                                state={borderCountries}
-                                                key={index}
-                                                className="mt-[5%] w-ful shadow-lg p-4 rounded   lg:p-3 lg:h-fit lg:w-[190px]"
-                                                style={{
-                                                    color: `${theme.theme.color}`,
-                                                }}
-                                            >
-                                                {borderCountries.name.common}
-                                            </NavLink>
-                                        )
-                                    )
-                                ) : (
-                                    <p className="text-lg lg:w-60 lg:mt-4">
-                                        No border Country Found
-                                    </p>
-                                )}
-                            </section>
+                    <p className="self-center">Back</p>
+                </NavLink>
+
+                <img
+                    className="w-[319px] h-[275px] rounded-lg md:w-[559px] md:h-[483px]"
+                    src={data.flags.svg ? data.flags.svg : "no data found"}
+                    alt={` this is the flag of ${data.name.common}`}
+                />
+            </section>
+
+            <section className="mx-[28px]  md:flex md:flex-row md:justify-around items-center ">
+                <div className="mt-10  md:-mt-10 md:w-[598px] md:h-[323px]">
+                    <p className="font-bold text-[22px]">
+                        {data.name.common ? data.name.common : "nodata found"}
+                    </p>
+                    <div className="md:flex md:gap-[50px] ">
+                        <section className="mt-4 md:w-[207px md:h-[160px]]">
+                            <div className="flex gap-3 py-1 ">
+                                <p className="font-semibold text-[14px]">
+                                    Native Name:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data.name.common
+                                        ? data.name.common
+                                        : "no data found"}
+                                </p>
+                            </div>
+                            <div className="flex gap-3 py-1">
+                                <p className="font-semibold text-[14px] ">
+                                    Population:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data.population
+                                        ? data.population.toLocaleString()
+                                        : "no data found"}
+                                </p>
+                            </div>
+                            <div className="flex gap-3 py-1">
+                                <p className="font-semibold text-[14px]">
+                                    Region:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data.region
+                                        ? data.region
+                                        : "no data found"}
+                                </p>
+                            </div>
+                            <div className="flex gap-3 py-1 ">
+                                <p className="font-semibold text-[14px]">
+                                    Sub Region:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data.subregion
+                                        ? data.subregion
+                                        : "no data found"}
+                                </p>
+                            </div>
+                            <div className="flex gap-3  py-1">
+                                <p className="font-semibold text-[14px]">
+                                    Capital:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data.capital
+                                        ? data.capital
+                                        : "no data found"}
+                                </p>
+                            </div>
                         </section>
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
+                        {/*top level*/}
+                        <section className="mt-6 md:w-[250px]">
+                            <div className="flex py-1">
+                                <p className="font-semibold text-[14px]">
+                                    Top Level Domain:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data.tld ? data.tld : "no data found"}
+                                </p>
+                            </div>
+                            <div className="flex gap-3  py-1">
+                                <p className="font-semibold text-[14px]">
+                                    Currencies:
+                                </p>
+                                <p className="font-thin text-[14px]">
+                                    {data && data?.currencies
+                                        ? data?.currencies[currencyCode].name
+                                        : "no data found"}
+                                </p>
+                            </div>
+                            <div className=" flex flex-wrap shrink-0  mt-[10px]">
+                                <p className="font-bold text-[14px] mr-[10px]">
+                                    Languages:
+                                </p>
+
+                                {data && languageCode
+                                    ? languageCode.map(
+                                          (language: any, index: number) => (
+                                              <p
+                                                  key={index}
+                                                  className="w-fit text-[14px]"
+                                              >
+                                                  {`${data.languages[language]},`}
+                                              </p>
+                                          )
+                                      )
+                                    : "no language found"}
+                            </div>
+                        </section>
+                    </div>
+                    <section className="mt-[34px] md:mt-[70px] ">
+                        <p className="font-bold text-[14px] ">
+                            Border Countries:
+                        </p>
+                        <section className=" flex flex-wrap shrink-0 place-content-center mt-[16px] gap-2 mb-5 ">
+                            {borders.length > 0 ? (
+                                borderCountries.map(
+                                    (borderCountries: Data, index: number) => (
+                                        <NavLink
+                                            to={{ pathname: "" }}
+                                            state={borderCountries}
+                                            key={index}
+                                            className="h-fit w-[96px] py-[6px] text-center shadow-md rounded-sm  md:w-[136px] md:h-[40px] "
+                                            style={{
+                                                color: `${theme.theme.color}`,
+                                            }}
+                                        >
+                                            <p className="text-[12px] ">
+                                                {borderCountries.name.common}
+                                            </p>
+                                        </NavLink>
+                                    )
+                                )
+                            ) : (
+                                <p className="text-[12px]">
+                                    No border Country Found
+                                </p>
+                            )}
+                        </section>
+                    </section>
+                </div>
+            </section>
+        </div>
     );
 };
 

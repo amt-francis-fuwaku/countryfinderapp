@@ -29,33 +29,35 @@ const AllCountryPage = () => {
     }
 
     return (
-        <section style={theme.theme} className="pt-[100px] ">
-            <SearchBarComponent />
-            <FilterComponent />
-
-            <div className="mt-10">
+        <section style={theme.theme}>
+            <div className="mx-[16px] md:mx-[80px] md:flex md:flex-row md:items-center md:justify-between md:mt-[48px]">
+                <SearchBarComponent />
+                <FilterComponent />
+            </div>
+            <div className="mt-[48px]">
                 {data.length > 0 ? (
                     data?.map((country: Data, index: number) => (
                         <NavLink
                             to={`${country.name.common}`}
                             state={country}
                             key={index}
+                            className="flex place-content-center mx-[56px] h-[full] w-[full]"
                         >
                             <CardComponent data={country} />
                         </NavLink>
                     ))
                 ) : (
-                    <div className=" -m-10 p-[10px] max-w-sm w-full lg:mt-[120px] lg:ml-0 lg:w-96">
-                        <div className="animate-pulse my-32 flex space-x-4 lg:my-20">
-                            <div className="flex-1 space-y-6 py-1">
-                                <div className=" rounded">No Country Found</div>
-                                <div className="space-y-3">
-                                    <div className="grid grid-cols-3 gap-4">
-                                        <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                                        <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-                                    </div>
-                                    <div className="h-2 bg-slate-700 rounded"></div>
+                    <div className=" -m-10 p-[10px] max-w-sm w-full lg:mt-[120px] lg:ml-0 lg:w-96 flex justify-center items-center">
+                        <div className="animate-pulse my-32 space-y-6">
+                            <div className="rounded text-center">
+                                No Country Found
+                            </div>
+                            <div className="space-y-3">
+                                <div className="grid grid-cols-3 gap-4">
+                                    <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                                    <div className="h-2 bg-slate-700 rounded col-span-1"></div>
                                 </div>
+                                <div className="h-2 bg-slate-700 rounded"></div>
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import { useDataProvider } from "../../context_data/useDataProvider";
 
 //theme data provider
 import { useThemeProvider } from "../../context_data/useThemeProvider";
+import MenuComponent from "../../components/menu_component/MenuComponent";
 
 const LayoutPage = () => {
     //data context
@@ -30,10 +31,13 @@ const LayoutPage = () => {
     }
 
     return (
-        <main style={theme.theme}>
-            <>
+        <main style={theme.theme} className="flex flex-col">
+            <div>
+                <MenuComponent />
+            </div>
+            <div className="mt-[80px] md:mt-[80px] clear-both">
                 <Outlet />
-            </>
+            </div>
         </main>
     );
 };

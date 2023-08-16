@@ -52,9 +52,9 @@ const SearchBarComponent = () => {
         };
     }, [searchedCountry]);
     return (
-        <>
+        <div className="mt-[24px] md:mt-0">
             <div
-                className="flex flex-row justify-center items-center  h-[48px] rounded-md bg-white shadow-lg ml-[16px] mr-[16px] lg:h-[56px] lg:w-[480px]"
+                className="flex flex-row justify-center items-center  h-[48px] rounded-md bg-white shadow-lg md:h-[56px] md:w-[480px]"
                 style={theme.theme}
             >
                 <div>
@@ -74,7 +74,7 @@ const SearchBarComponent = () => {
                     className="focus:ring-0 placeholder-slate-300  rounded-r-md focus:ring-slate-100 text-xs  focus:outline-none"
                 />
             </div>
-        </>
+        </div>
     );
 };
 

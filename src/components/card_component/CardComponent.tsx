@@ -9,21 +9,29 @@ const CardComponent = ({ data }: CardComponentProps) => {
     const theme = useThemeProvider();
     return (
         <div
-            className="ml-[56px] mr-[56px] rounded-md bg-white shadow-lg mb-[40px]"
+            className="mb-10 h-[336px] w-[264px] rounded-md bg-white shadow-lg"
             style={theme.theme}
         >
-            <div className="">
-                <img
-                    src={data?.flags?.svg}
-                    alt={data?.flags?.alt}
-                    className="object-cover w-full h-full rounded-t-lg "
-                />
-            </div>
-            <div className=" flex flex-col py-10 px-4">
-                <p className="font-bold text-lg">{data.name.common}</p>
-                <p>Population : {data.population.toLocaleString()}</p>
-                <p>Region : {data.region} </p>
-                <p>Capital : {data.capital ? data.capital : "no capital "} </p>
+            <img
+                src={data?.flags?.svg}
+                alt={data?.flags?.alt}
+                className="object-cover w-[full] h-[full] rounded-t-lg "
+            />
+
+            <div className=" flex flex-col mt-[24px] px-4 md:w-[267px] md:h-[160px]">
+                <p className="font-bold text-[18px]">{data.name.common}</p>
+                <p>
+                    <span className="font-bold">Population </span>:{" "}
+                    {data.population.toLocaleString()}
+                </p>
+                <p>
+                    {" "}
+                    <span className="font-bold"> Region</span> : {data.region}{" "}
+                </p>
+                <p>
+                    <span className="font-bold"> RegionCapital</span> :{" "}
+                    {data.capital ? data.capital : "no capital "}{" "}
+                </p>
             </div>
         </div>
     );

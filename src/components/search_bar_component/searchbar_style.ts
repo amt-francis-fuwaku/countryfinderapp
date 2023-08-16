@@ -8,8 +8,8 @@ rounded-
 bg-white 
 shadow-md  
 font-nunito
-ml-[16px]
-mr-[16px]
-lg:h-[56px]
-lg:w-[480px]
+mx-[16px]
+md:h-[56px]
+md:w-[480px]
+md:ml-[80px]
 `);

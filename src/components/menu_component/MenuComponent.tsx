@@ -2,8 +2,6 @@ import { faMoon as regularMoon } from "@fortawesome/free-regular-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-//component css style
-import { menuStyle } from "./menustyle";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { useEffect, useState } from "react";
 
@@ -20,13 +18,16 @@ const MenuComponent = () => {
     useEffect(() => {}, [mode]);
 
     return (
-        <div className={menuStyle} style={theme.theme}>
-            <p className="place-self-center text-[14px] font-bold ">
+        <div
+            className="flex justify-between z-100 shadow-md m-0 top-0 left-0 bg-white fixed h-[80px] w-[100%]"
+            style={theme.theme}
+        >
+            <p className="place-self-center text-[14px] font-bold ml-[16px]  md:ml-[80px] ">
                 where in the world?
             </p>
 
             <div
-                className="flex place-items-center space-x-1 text-[12px] cursor-pointer "
+                className="flex place-items-center space-x-1 text-[12px] cursor-pointer mr-[16px]  md:mr-[80px] "
                 onClick={() => {
                     toggleMode();
                     theme.toggle();

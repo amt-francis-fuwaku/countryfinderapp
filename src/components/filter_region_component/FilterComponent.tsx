@@ -50,9 +50,9 @@ const FilterComponent = () => {
     }, [selectedRegion]);
 
     return (
-        <>
+        <div className="mt-[40px] md:mt-0">
             <div
-                className=" flex justify-between text-[14px] items-center ml-[16px] mt-10 h-[48px] w-[200px] rounded-md bg-white shadow-lg mr-[16px] lg:h-[56px] lg:w-[480px]"
+                className="flex justify-between cursor-pointer mt-10 text-[14px] items-center  h-[48px] w-[200px] rounded-md bg-white shadow-lg md:h-[56px] md:w-[200px] md:mt-0"
                 style={theme.theme}
                 onClick={toggleDropDownList}
             >
@@ -68,7 +68,7 @@ const FilterComponent = () => {
             </div>
             {!dropDown && (
                 <ul
-                    className="flex flex-col text-[14px] fixed  justify-start ml-[16px] mt-1 h-[144px] w-[200px] rounded-md bg-white shadow-lg mr-[16px] lg:h-[56px] lg:w-[480px]"
+                    className="flex flex-col text-[14px] fixed justify-start  mt-1 h-[144px] w-[200px] rounded-md bg-white shadow-lg mr-[16px] md:h-[164px] md:w-[200px]"
                     style={theme.theme}
                 >
                     {dropDownList.map((item, index) => (
@@ -85,7 +85,7 @@ const FilterComponent = () => {
                     ))}
                 </ul>
             )}
-        </>
+        </div>
     );
 };
 
