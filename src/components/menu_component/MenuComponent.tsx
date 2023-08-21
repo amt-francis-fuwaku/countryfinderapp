@@ -19,7 +19,7 @@ const MenuComponent = () => {
 
     return (
         <div
-            className="flex justify-between shadow-md m-0 top-0 left-0 bg-white fixed h-[80px] w-screen "
+            className="flex justify-between items-center shadow-md m-0 top-0 left-0 bg-white fixed h-[80px] w-screen "
             style={theme.theme}
         >
             <p className="place-self-center text-[14px] font-bold ml-[16px]  md:ml-[80px] md:text-[24px] ">
@@ -27,7 +27,7 @@ const MenuComponent = () => {
             </p>
 
             <div
-                className="flex place-items-center space-x-1 text-[12px] cursor-pointer mr-[16px]  md:mr-[80px] md:text-[16px] "
+                className="flex place-items-center h-fit space-x-1 text-[12px] cursor-pointer mr-[16px]  md:mr-[80px] md:text-[16px] "
                 onClick={() => {
                     toggleMode();
                     theme.toggle();

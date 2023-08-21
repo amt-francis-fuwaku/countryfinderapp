@@ -54,10 +54,10 @@ const CountryDetailsPage = () => {
                     <FontAwesomeIcon
                         icon={faArrowLeft}
                         style={{ color: `${theme.theme.color}` }}
-                        className="self-center"
+                        className="self-center cursor-pointer"
                     />
 
-                    <p className="self-center">Back</p>
+                    <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
 
                 <div className="  mt-[50px] md:ml-[80px] md:mt-[100px] ">
@@ -69,58 +69,48 @@ const CountryDetailsPage = () => {
                 </div>
             </section>
 
-            <section className="flex flex-col flex-shrink-0 mx-[28px] md:mx-0 md:h-fit md:w-fit md:flex md:flex-row md:justify-around md:ml-[144px] md:mt-[260px]">
+            <section className="flex flex-col flex-shrink-0 mx-[28px] md:mx-0 md:h-fit md:w-fit md:flex md:flex-row md:justify-around md:ml-[144px] md:mt-[260px] text-[14px] md:text-[16px]">
                 <div className="mt-10 md:w-[598px] md:h-[323px]  ">
-                    <p className="font-bold text-[22px]">
+                    <p className="font-bold text-[22px] md:text-[32px]">
                         {data.name.common ? data.name.common : "nodata found"}
                     </p>
-                    <div className="md:flex md:gap-[50px] ">
+                    <div className="md:flex md:gap-[50px] text-[14px]  ">
                         <section className="mt-4 ">
                             <div className="flex gap-3 py-1 ">
-                                <p className="font-semibold text-[14px]">
-                                    Native Name:
-                                </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-semibold ">Native Name:</p>
+                                <p className="font-thin ]">
                                     {data.name.common
                                         ? data.name.common
                                         : "no data found"}
                                 </p>
                             </div>
                             <div className="flex gap-3 py-1">
-                                <p className="font-semibold text-[14px] ">
-                                    Population:
-                                </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-semibold  ">Population:</p>
+                                <p className="font-thin ">
                                     {data.population
                                         ? data.population.toLocaleString()
                                         : "no data found"}
                                 </p>
                             </div>
                             <div className="flex gap-3 py-1">
-                                <p className="font-semibold text-[14px]">
-                                    Region:
-                                </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-semibold ">Region:</p>
+                                <p className="font-thin ">
                                     {data.region
                                         ? data.region
                                         : "no data found"}
                                 </p>
                             </div>
                             <div className="flex gap-3 py-1 ">
-                                <p className="font-semibold text-[14px]">
-                                    Sub Region:
-                                </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-semibold ">Sub Region:</p>
+                                <p className="font-thin ">
                                     {data.subregion
                                         ? data.subregion
                                         : "no data found"}
                                 </p>
                             </div>
                             <div className="flex gap-3  py-1">
-                                <p className="font-semibold text-[14px]">
-                                    Capital:
-                                </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-semibold ">Capital:</p>
+                                <p className="font-thin ">
                                     {data.capital
                                         ? data.capital
                                         : "no data found"}
@@ -130,18 +120,16 @@ const CountryDetailsPage = () => {
                         {/*top level*/}
                         <section className="mt-6 md:w-[250px]">
                             <div className="flex py-1">
-                                <p className="font-semibold text-[14px]">
+                                <p className="font-semibold ">
                                     Top Level Domain:
                                 </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-thin ">
                                     {data.tld ? data.tld : "no data found"}
                                 </p>
                             </div>
                             <div className="flex gap-3  py-1">
-                                <p className="font-semibold text-[14px]">
-                                    Currencies:
-                                </p>
-                                <p className="font-thin text-[14px]">
+                                <p className="font-semibold ">Currencies:</p>
+                                <p className="font-thin ">
                                     {data && data?.currencies
                                         ? data?.currencies[currencyCode].name
                                         : "no data found"}
@@ -155,10 +143,7 @@ const CountryDetailsPage = () => {
                                 {data && languageCode
                                     ? languageCode.map(
                                           (language: any, index: number) => (
-                                              <p
-                                                  key={index}
-                                                  className="w-fit text-[14px]"
-                                              >
+                                              <p key={index} className="w-fit ">
                                                   {`${data.languages[language]},`}
                                               </p>
                                           )
@@ -184,7 +169,7 @@ const CountryDetailsPage = () => {
                                                 color: `${theme.theme.color}`,
                                             }}
                                         >
-                                            <p className=" text-center text-[12px] md:text-[14px] ">
+                                            <p className=" text-center ">
                                                 {borderCountries.name.common}
                                             </p>
                                         </NavLink>

@@ -34,20 +34,23 @@ const AllCountryPage = () => {
     }
 
     return (
-        <section style={theme.theme} className="flex flex-col md:mx-[80px]">
-            <div className="flex flex-col mx-[16px] md:mx-0 mb-10 md:flex-row md:justify-between ">
+        <section
+            style={theme.theme}
+            className="flex flex-col mx-[16px] md:mx-[80px]"
+        >
+            <div className="flex flex-col  md:mx-0 mb-10 md:flex-row md:justify-between ">
                 <SearchBarComponent />
                 <FilterComponent />
             </div>
 
-            <div className="grid grid-cols-1-col place-content-center gap-y-[40px] overflow-hidden md:grid md:place-items-start md:grid-cols-4 md:gap-x-[40px] lg:gap-x-[78px]">
+            <div className=" grid grid-cols-1 place-items-center gap-y-[40px] md:grid-cols-2 md:gap-x-[48px] md:place-items-start lg:grid-cols-3 lg:place-items-start lg:gap-x-[17px] 2xl:grid-cols-4 2xl:gap-x-[78px]">
                 {data.length > 0 ? (
                     data.map((country: Data, index: number) => (
                         <NavLink
                             to={`${country.name.common}`}
                             state={country}
                             key={index}
-                            className="w-[264px] rounded-t-lg  lg:w-[380px] lg:h-[420px] "
+                            className="w-[264px] rounded-t-lg  md:h-[336px] md:w-[280px] lg:w-[290px] lg:h-[420px] 2xl:w-[380px] "
                         >
                             <CardComponent data={country} />
                         </NavLink>
