@@ -16,7 +16,7 @@ const CardComponent = ({ data }: CardComponentProps) => {
             <img
                 src={data?.flags?.png}
                 alt={data?.flags?.alt}
-                className="rounded-t-lg h-[160px] md:h-[160px] md:w-[280px] lg:h-[200px] lg:w-[290px] 2xl:w-[380px]"
+                className="rounded-t-lg h-[160px] md:h-[160px] md:w-[280px] lg:h-[200px] lg:w-[290px] 2xl:w-[380px] 2xl:h-[230px]"
             />
 
             <div className="flex flex-col px-4 mt-[35px] md:px-4  ">
