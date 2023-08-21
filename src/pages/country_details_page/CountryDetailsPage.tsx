@@ -60,7 +60,7 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
 
-                <div className=" mt-[50px] md:ml-[80px] md:mt-[100px] md:w-[700px] md:h-[483px] ">
+                <div className=" mt-[50px] md:ml-[80px] md:mt-[100px] 2xl:w-[700px] 2xl:h-[483px] ">
                     <img
                         className="rounded-md w-full h-full "
                         src={data.flags.png ? data.flags.png : "no data found"}
