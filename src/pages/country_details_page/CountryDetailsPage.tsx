@@ -60,16 +60,16 @@ const CountryDetailsPage = () => {
                     <p className="self-center">Back</p>
                 </NavLink>
 
-                <div className="mt-[50px] md:ml-[80px] md:mt-[100px] md:w-[559px] md:h-[483px]  ">
+                <div className="  mt-[50px] md:ml-[80px] md:mt-[100px] ">
                     <img
-                        className="rounded-md md:w-[559px] md:h-[483px]"
+                        className="rounded-md w-full md:w-[559px] md:h-[483px]"
                         src={data.flags.png ? data.flags.png : "no data found"}
                         alt={` this is the flag of ${data.name.common}`}
                     />
                 </div>
             </section>
 
-            <section className="flex flex-col flex-shrink-0  mx-[28px] md:mx-0 md:h-fit md:w-fit md:flex md:flex-row md:justify-around md:ml-[144px] md:mt-[260px]">
+            <section className="flex flex-col flex-shrink-0 mx-[28px] md:mx-0 md:h-fit md:w-fit md:flex md:flex-row md:justify-around md:ml-[144px] md:mt-[260px]">
                 <div className="mt-10 md:w-[598px] md:h-[323px]  ">
                     <p className="font-bold text-[22px]">
                         {data.name.common ? data.name.common : "nodata found"}

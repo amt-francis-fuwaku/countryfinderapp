@@ -10,7 +10,7 @@ const CardComponent = ({ data }: CardComponentProps) => {
     return (
         <div
             style={theme.theme}
-            className="  flex flex-col shadow-lg rounded-lg w-[264px] h-[336px] mb-3 lg:w-[380px] lg:h-[420px] "
+            className=" flex flex-col shadow-lg  w-[264px] h-[336px] mb-3 lg:w-[380px] lg:h-[420px] "
         >
             <img
                 src={data?.flags?.png}
@@ -18,11 +18,12 @@ const CardComponent = ({ data }: CardComponentProps) => {
                 className="rounded-t-lg h-[160px] md:h-[160px] lg:h-[230px]"
             />
 
-            <div className="flex flex-col mt-[24px] px-4 text-[14px] md:text-[18px]">
-                <p className="font-bold ">{data.name.common}</p>
+            <div className="flex flex-col mt-[35px] px-8 text-[14px] ">
+                <p className="font-bold md:text-[18px] ">{data.name.common}</p>
                 <div>
                     <p>
                         <span className="font-bold">Population </span>:
+                        {data?.population.toLocaleString()}
                     </p>
                     <p>
                         <span className="font-bold"> Region</span> :

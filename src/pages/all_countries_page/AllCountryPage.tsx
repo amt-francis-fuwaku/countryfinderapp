@@ -40,14 +40,14 @@ const AllCountryPage = () => {
                 <FilterComponent />
             </div>
 
-            <div className="grid grid-cols-1-col place-content-center gap-y-[40px] overflow-hidden md:grid md:place-items-start md:grid-cols-4 md:gap-x-[40px] lg:gap-x-[75px]">
+            <div className="grid grid-cols-1-col place-content-center gap-y-[40px] overflow-hidden md:grid md:place-items-start md:grid-cols-4 md:gap-x-[40px] lg:gap-x-[78px]">
                 {data.length > 0 ? (
                     data.map((country: Data, index: number) => (
                         <NavLink
                             to={`${country.name.common}`}
                             state={country}
                             key={index}
-                            className="w-[264px] lg:w-[390px] lg:h-[420px]  "
+                            className="w-[264px] rounded-t-lg  lg:w-[380px] lg:h-[420px] "
                         >
                             <CardComponent data={country} />
                         </NavLink>
