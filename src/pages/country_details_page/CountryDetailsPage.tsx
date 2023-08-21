@@ -44,11 +44,11 @@ const CountryDetailsPage = () => {
     }, []);
 
     return (
-        <div className="flex flex-col md:flex-row w-screen h-screen">
-            <section className=" flex  flex-col mx-[20px] md:mx-0  md:flex-col md:w-fit  md:h-fit  ">
+        <div className="flex flex-col lg:flex-row">
+            <section className=" flex  flex-col mx-[20px] md:mx-0 md:flex-col md:w-fit  md:h-fit  ">
                 <NavLink
                     to="/"
-                    className="flex flex-row justify-around w-[104px] h-[42px] cursor-pointer shadow-md  rounded md:ml-[80px] md:mt-[80px] "
+                    className="flex flex-row shrink-0  justify-around w-[104px] h-[42px] cursor-pointer shadow-md  rounded md:ml-[80px] md:mt-[80px] "
                     style={{ color: `${theme.theme.color}` }}
                 >
                     <FontAwesomeIcon
@@ -60,21 +60,21 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
 
-                <div className="  mt-[50px] md:ml-[80px] md:mt-[100px] ">
+                <div className=" mt-[50px] md:ml-[80px] md:mt-[100px] md:w-[700px] md:h-[483px] ">
                     <img
-                        className="rounded-md w-full md:w-[559px] md:h-[483px]"
+                        className="rounded-md w-full h-full "
                         src={data.flags.png ? data.flags.png : "no data found"}
                         alt={` this is the flag of ${data.name.common}`}
                     />
                 </div>
             </section>
 
-            <section className="flex flex-col flex-shrink-0 mx-[28px] md:mx-0 md:h-fit md:w-fit md:flex md:flex-row md:justify-around md:ml-[144px] md:mt-[260px] text-[14px] md:text-[16px]">
+            <section className="flex flex-col flex-shrink-0 mx-[28px] text-[14px] md:mx-[80px] md:h-fit md:w-fit  lg:mt-[260px] md:text-[16px] 2xl:ml-[144px]">
                 <div className="mt-10 md:w-[598px] md:h-[323px]  ">
                     <p className="font-bold text-[22px] md:text-[32px]">
                         {data.name.common ? data.name.common : "nodata found"}
                     </p>
-                    <div className="md:flex md:gap-[50px] text-[14px]  ">
+                    <div className="md:flex  md:gap-[50px] text-[14px]  ">
                         <section className="mt-4 ">
                             <div className="flex gap-3 py-1 ">
                                 <p className="font-semibold ">Native Name:</p>

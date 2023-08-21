@@ -66,9 +66,9 @@ const AllCountryPage = () => {
                                     <div className="h-2 bg-slate-700 rounded col-span-1"></div>
                                 </div>
                                 <div className="h-2 bg-slate-700 rounded"></div>
+                                <p>no country found...</p>
                             </div>
                         </div>
-                        <p>no country found...</p>
                     </div>
                 )}
             </div>
