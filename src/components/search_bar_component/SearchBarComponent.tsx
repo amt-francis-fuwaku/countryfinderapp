@@ -52,28 +52,26 @@ const SearchBarComponent = () => {
         };
     }, [searchedCountry]);
     return (
-        <div className="mt-[24px] md:mt-0">
-            <div
-                className="flex flex-row justify-center items-center  h-[48px] rounded-md bg-white shadow-lg md:h-[56px] md:w-[480px]"
-                style={theme.theme}
-            >
-                <div>
-                    <FontAwesomeIcon
-                        icon={faMagnifyingGlass}
-                        size="lg"
-                        style={{ color: `${theme.theme.color}` }}
-                        className="px-[25px]"
-                    />
-                </div>
-                <input
-                    onChange={handleSearch}
-                    value={searchedCountry}
-                    type="text"
-                    placeholder="search for a country....."
-                    style={{ ...theme.theme, width: "100%" }}
-                    className="focus:ring-0 placeholder-slate-300  rounded-r-md focus:ring-slate-100 text-xs  focus:outline-none"
+        <div
+            className="flex flex-row justify-center items-center h-[48px] rounded-md bg-white shadow-lg  md:w-[480px] md:h-[56px]"
+            style={theme.theme}
+        >
+            <div>
+                <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    size="lg"
+                    style={{ color: `${theme.theme.color}` }}
+                    className="px-[25px]"
                 />
             </div>
+            <input
+                onChange={handleSearch}
+                value={searchedCountry}
+                type="text"
+                placeholder="search for a country....."
+                style={{ ...theme.theme, width: "100%" }}
+                className="text-[12px] focus:ring-0 w-fit placeholder-slate-300  rounded-r-md focus:ring-slate-100   focus:outline-none md:text-[14px]"
+            />
         </div>
     );
 };

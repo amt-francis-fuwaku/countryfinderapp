@@ -50,13 +50,13 @@ const FilterComponent = () => {
     }, [selectedRegion]);
 
     return (
-        <div className="mt-[40px] md:mt-0">
+        <div className="mt-[40px] text-[12px] h-[48px] w-[200px] md:mt-0  md:text-[14px]">
             <div
-                className="flex justify-between cursor-pointer mt-10 text-[14px] items-center  h-[48px] w-[200px] rounded-md bg-white shadow-lg md:h-[56px] md:w-[200px] md:mt-0"
+                className="flex justify-between cursor-pointer  text-[14px] items-center  h-[48px] w-[200px] rounded-md bg-white shadow-lg md:h-[56px] md:w-[200px] "
                 style={theme.theme}
                 onClick={toggleDropDownList}
             >
-                <p className="ml-[16px] ">
+                <p className="ml-[16px] font-medium ">
                     {selectedRegion || "Filter by Region"}
                 </p>
 
@@ -68,14 +68,14 @@ const FilterComponent = () => {
             </div>
             {!dropDown && (
                 <ul
-                    className="flex flex-col text-[14px] fixed justify-start  mt-1 h-[144px] w-[200px] rounded-md bg-white shadow-lg mr-[16px] md:h-[164px] md:w-[200px]"
+                    className="flex pt-2 flex-col fixed justify-start  mt-1 h-[144px] w-[200px] rounded-md bg-white shadow-lg  md:h-[164px] md:w-[200px] md:pt-5"
                     style={theme.theme}
                 >
                     {dropDownList.map((item, index) => (
                         <li
                             key={index}
                             value={index}
-                            className="ml-[16px] transition ease-in-out delay-10 hover:scale-10 duration-10"
+                            className="ml-[16px] mb-[2px] transition ease-in-out delay-10 hover:scale-10 duration-10 cursor-pointer "
                             onClick={(e) =>
                                 showSelectedRegion(e.currentTarget.value)
                             }

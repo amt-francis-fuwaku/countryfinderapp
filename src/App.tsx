@@ -3,7 +3,7 @@ import { router } from "./routes/app_routes";
 
 function App() {
     return (
-        <div className="overflow-auto">
+        <div>
             <RouterProvider router={router} />
         </div>
     );

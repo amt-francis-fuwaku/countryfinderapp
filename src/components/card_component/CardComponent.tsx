@@ -9,29 +9,30 @@ const CardComponent = ({ data }: CardComponentProps) => {
     const theme = useThemeProvider();
     return (
         <div
-            className="mb-10 h-[336px] w-[264px] rounded-md bg-white shadow-lg"
             style={theme.theme}
+            className="  flex flex-col shadow-lg rounded-lg w-[264px] h-[336px] mb-3 lg:w-[380px] lg:h-[420px] "
         >
             <img
-                src={data?.flags?.svg}
+                src={data?.flags?.png}
                 alt={data?.flags?.alt}
-                className="object-cover w-[full] h-[full] rounded-t-lg "
+                className="rounded-t-lg h-[160px] md:h-[160px] lg:h-[230px]"
             />
 
-            <div className=" flex flex-col mt-[24px] px-4 md:w-[267px] md:h-[160px]">
-                <p className="font-bold text-[18px]">{data.name.common}</p>
-                <p>
-                    <span className="font-bold">Population </span>:{" "}
-                    {data.population.toLocaleString()}
-                </p>
-                <p>
-                    {" "}
-                    <span className="font-bold"> Region</span> : {data.region}{" "}
-                </p>
-                <p>
-                    <span className="font-bold"> RegionCapital</span> :{" "}
-                    {data.capital ? data.capital : "no capital "}{" "}
-                </p>
+            <div className="flex flex-col mt-[24px] px-4 text-[14px] md:text-[18px]">
+                <p className="font-bold ">{data.name.common}</p>
+                <div>
+                    <p>
+                        <span className="font-bold">Population </span>:
+                    </p>
+                    <p>
+                        <span className="font-bold"> Region</span> :
+                        {data.region}{" "}
+                    </p>
+                    <p>
+                        <span className="font-bold"> RegionCapital</span> :
+                        {data.capital ? data.capital : "no capital "}
+                    </p>
+                </div>
             </div>
         </div>
     );

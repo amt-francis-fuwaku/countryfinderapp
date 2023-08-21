@@ -16,43 +16,48 @@ const AllCountryPage = () => {
     //shows loading animation when data is loading
     if (!data) {
         return (
-            <div
-                className="mt-20 font-extrabold min-h-screen p-36 "
-                style={theme.theme}
-            >
-                <div className="mt-20 lg:mx-[750px]">
-                    <div className="animate-ping rounded-full h-16 w-16 border-t-2 border-b-2 border-teal-100 lg:h-32 lg:w-32  lg:border-t-8 lg:border-b-8"></div>
-                    <p className="-mt-10 lg:-mt-20 lg:ml-6">Loading</p>
+            <div className="animate-pulse flex flex-col my-60 mx-20  w-[264px] h-[336px]">
+                <div className="rounded-t-md bg-slate-700 w-[264px] h-[336px]"></div>
+                <div className="flex-1 space-y-10 py-6">
+                    <div className="h-2 bg-slate-700 rounded"></div>
+                    <div className="space-y-10">
+                        <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                        </div>
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                    </div>
                 </div>
+                <p>loading...</p>
             </div>
         );
     }
 
     return (
-        <section style={theme.theme}>
-            <div className="mx-[16px] md:mx-[80px] md:flex md:flex-row md:items-center md:justify-between md:mt-[48px]">
+        <section style={theme.theme} className="flex flex-col md:mx-[80px]">
+            <div className="flex flex-col mx-[16px] md:mx-0 mb-10 md:flex-row md:justify-between ">
                 <SearchBarComponent />
                 <FilterComponent />
             </div>
-            <div className="mt-[48px]">
+
+            <div className="grid grid-cols-1-col place-content-center gap-y-[40px] overflow-hidden md:grid md:place-items-start md:grid-cols-4 md:gap-x-[40px] lg:gap-x-[75px]">
                 {data.length > 0 ? (
-                    data?.map((country: Data, index: number) => (
+                    data.map((country: Data, index: number) => (
                         <NavLink
                             to={`${country.name.common}`}
                             state={country}
                             key={index}
-                            className="flex place-content-center mx-[56px] h-[full] w-[full]"
+                            className="w-[264px] lg:w-[390px] lg:h-[420px]  "
                         >
                             <CardComponent data={country} />
                         </NavLink>
                     ))
                 ) : (
-                    <div className=" -m-10 p-[10px] max-w-sm w-full lg:mt-[120px] lg:ml-0 lg:w-96 flex justify-center items-center">
-                        <div className="animate-pulse my-32 space-y-6">
-                            <div className="rounded text-center">
-                                No Country Found
-                            </div>
-                            <div className="space-y-3">
+                    <div className="animate-pulse flex flex-col w-[264px] h-[336px]">
+                        <div className="rounded-t-md bg-slate-700 w-[264px] h-[336px]"></div>
+                        <div className="flex-1 space-y-10 py-6">
+                            <div className="h-2 bg-slate-700 rounded"></div>
+                            <div className="space-y-10">
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="h-2 bg-slate-700 rounded col-span-2"></div>
                                     <div className="h-2 bg-slate-700 rounded col-span-1"></div>
@@ -60,6 +65,7 @@ const AllCountryPage = () => {
                                 <div className="h-2 bg-slate-700 rounded"></div>
                             </div>
                         </div>
+                        <p>no country found...</p>
                     </div>
                 )}
             </div>
