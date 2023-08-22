@@ -44,11 +44,11 @@ const CountryDetailsPage = () => {
     }, []);
 
     return (
-        <div className="flex flex-col lg:flex-row">
-            <section className=" flex  flex-col mx-[20px] md:mx-0 md:flex-col md:w-fit  md:h-fit  ">
+        <div className="flex flex-col md:flex-col lg:flex-row ">
+            <section className=" flex flex-col mx-[20px] md:-mt-20 md:flex-col md:w-fit  md:h-fit ">
                 <NavLink
                     to="/"
-                    className="flex flex-row shrink-0  justify-around w-[104px] h-[42px] cursor-pointer shadow-md  rounded md:ml-[80px] md:mt-[80px] "
+                    className="flex flex-row shrink-0 justify-around w-[104px] h-[42px] cursor-pointer shadow-md  rounded md:ml-[80px] md:mt-[80px] "
                     style={{ color: `${theme.theme.color}` }}
                 >
                     <FontAwesomeIcon
@@ -60,7 +60,7 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
 
-                <div className=" mt-[50px] md:ml-[80px] md:mt-[100px] 2xl:w-[700px] 2xl:h-[483px] ">
+                <div className="mt-[50px] md:mx-[80px] md:mt-[40px] md:w-full md:h-full lg:w-[400px] lg:h-[283px] 2xl:h-[483px] lg:mx-[80px] 2xl:w-[700px]">
                     <img
                         className="rounded-md w-full h-full "
                         src={data.flags.png ? data.flags.png : "no data found"}
@@ -69,13 +69,13 @@ const CountryDetailsPage = () => {
                 </div>
             </section>
 
-            <section className="flex flex-col flex-shrink-0 mx-[28px] text-[14px] md:mx-[80px] md:h-fit md:w-fit  lg:mt-[260px] md:text-[16px] 2xl:ml-[144px]">
+            <section className="flex flex-col flex-shrink-0 mx-[28px] text-[14px] md:mt-0 md:mx-[80px] md:h-fit md:w-fit  md:text-[16px] lg:-ml-[35px] lg:mt-16 2xl:ml-0 2xl:mt-32">
                 <div className="mt-10 md:w-[598px] md:h-[323px]  ">
-                    <p className="font-bold text-[22px] md:text-[32px]">
+                    <p className="font-bold md:text-[22px] 2xl:text-[32px]">
                         {data.name.common ? data.name.common : "nodata found"}
                     </p>
-                    <div className="md:flex  md:gap-[50px] text-[14px]  ">
-                        <section className="mt-4 ">
+                    <div className="md:flex md:gap-[30px] text-[14px]  ">
+                        <section className="mt-4">
                             <div className="flex gap-3 py-1 ">
                                 <p className="font-semibold ">Native Name:</p>
                                 <p className="font-thin ]">
@@ -152,11 +152,11 @@ const CountryDetailsPage = () => {
                             </div>
                         </section>
                     </div>
-                    <section className="mt-[34px] md:mt-[40px]  ">
+                    <section className="flex flex-col flex-wrap md:flex-row gap-3">
                         <p className="font-bold text-[14px] ">
                             Border Countries:
                         </p>
-                        <section className=" flex flex-wrap shrink-0 place-content-center mt-[16px] gap-2 mb-5 md:-mt-6 md:ml-40 md:w-fit">
+                        <section className=" text-[12px] grid grid-cols-4 md:grid-cols-3 lg:grid-cols-3 lg:w-fit lg:gap-2 2xl:grid-cols-3  ">
                             {borders.length > 0 ? (
                                 borderCountries.map(
                                     (borderCountries: Data, index: number) => (
@@ -164,7 +164,7 @@ const CountryDetailsPage = () => {
                                             to={{ pathname: "" }}
                                             state={borderCountries}
                                             key={index}
-                                            className="h-fit w-[96px] py-[6px] text-center shadow-md rounded-sm  md:w-[136px] md:h-[40px] "
+                                            className="h-fit w-[100px] py-2 px-0 text-center shadow-md rounded-sm md:w-[100px] "
                                             style={{
                                                 color: `${theme.theme.color}`,
                                             }}
