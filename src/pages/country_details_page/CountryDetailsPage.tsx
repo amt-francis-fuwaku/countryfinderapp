@@ -156,7 +156,7 @@ const CountryDetailsPage = () => {
                         <p className="font-bold text-[14px] ">
                             Border Countries:
                         </p>
-                        <section className=" text-[12px] grid grid-cols-4 md:grid-cols-3 lg:grid-cols-3 lg:w-fit lg:gap-2 2xl:grid-cols-3  ">
+                        <section className=" text-[12px] grid grid-cols-4 md:grid-cols-3 lg:grid-cols-3 lg:w-fit lg:gap-2 2xl:grid-cols-3 ">
                             {borders.length > 0 ? (
                                 borderCountries.map(
                                     (borderCountries: Data, index: number) => (

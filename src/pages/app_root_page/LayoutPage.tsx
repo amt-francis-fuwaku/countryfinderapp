@@ -10,13 +10,13 @@ const LayoutPage = () => {
 
     return (
         <main
-            className="h-screen overflow-x-hidden overflow-y-scroll"
+            className="overflow-x-hidden overflow-y-scroll"
             style={theme.theme}
         >
             <div>
                 <MenuComponent />
             </div>
-            <div className="mt-32">
+            <div className="mt-32 h-screen w-screen ">
                 <Outlet />
             </div>
         </main>

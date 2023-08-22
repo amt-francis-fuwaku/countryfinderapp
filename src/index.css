@@ -4,9 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .card {
+        @apply flex flex-col shadow-lg rounded-t-lg w-[264px] h-[336px] mb-3 md:w-[280px] lg:w-[290px]  lg:h-[420px] 2xl:w-[380px];
+    }
+    .card-image {
+        @apply rounded-t-lg h-[160px] md:h-[160px] md:w-[280px] lg:h-[200px] lg:w-[290px] 2xl:w-[380px] 2xl:h-[230px];
+    }
+    .card-list {
+        @apply grid grid-cols-1 place-items-center gap-y-[40px] md:grid-cols-2 md:gap-x-[48px] md:place-items-start lg:grid-cols-3 lg:place-items-start lg:gap-x-[130px] 2xl:grid-cols-4 2xl:gap-x-[78px];
+    }
+}
+
 html,
 body {
     height: 100%;
     width: 100%;
     font-family: "Nunito Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }

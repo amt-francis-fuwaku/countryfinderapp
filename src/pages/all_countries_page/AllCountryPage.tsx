@@ -43,7 +43,7 @@ const AllCountryPage = () => {
                 <FilterComponent />
             </div>
 
-            <div className=" grid grid-cols-1 place-items-center gap-y-[40px] md:grid-cols-2 md:gap-x-[48px] md:place-items-start lg:grid-cols-3 lg:place-items-start lg:gap-x-[17px] 2xl:grid-cols-4 2xl:gap-x-[78px]">
+            <div className="card-list">
                 {data.length > 0 ? (
                     data.map((country: Data, index: number) => (
                         <NavLink
