@@ -19,25 +19,27 @@ const MenuComponent = () => {
 
     return (
         <div
-            className="flex justify-between items-center shadow-md m-0 top-0 left-0 bg-white fixed h-[80px] w-screen "
+            className=" flex place-content-center shadow-md m-0 top-0 left-0 bg-white fixed h-[80px] w-full"
             style={theme.theme}
         >
-            <p className="place-self-center text-[14px] font-bold ml-[16px]  md:ml-[80px] md:text-[24px] ">
-                where in the world?
-            </p>
+            <div className="flex w-full px-[16px] justify-between items-center md:justify-between md:items-center md:w-[1180px] md:m-auto md:py-10]">
+                <p className="text-[14px] font-bold md:text-[24px]  ">
+                    where in the world?
+                </p>
+                <div
+                    className="flex place-content-center h-fit  space-x-1 text-[12px] cursor-pointer  md:text-[16px] "
+                    onClick={() => {
+                        toggleMode();
+                        theme.toggle();
+                    }}
+                >
+                    <FontAwesomeIcon
+                        icon={mode === "Light" ? regularMoon : faMoon}
+                        className="place-self-center"
+                    />
 
-            <div
-                className="flex place-items-center h-fit space-x-1 text-[12px] cursor-pointer mr-[16px]  md:mr-[80px] md:text-[16px] "
-                onClick={() => {
-                    toggleMode();
-                    theme.toggle();
-                }}
-            >
-                <FontAwesomeIcon
-                    icon={mode === "Light" ? regularMoon : faMoon}
-                />
-
-                <p>{mode} Mode</p>
+                    <p>{mode}Mode</p>
+                </div>
             </div>
         </div>
     );

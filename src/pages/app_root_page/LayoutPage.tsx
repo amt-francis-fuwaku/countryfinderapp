@@ -9,14 +9,9 @@ const LayoutPage = () => {
     const theme = useThemeProvider();
 
     return (
-        <main
-            className="overflow-x-hidden overflow-y-scroll"
-            style={theme.theme}
-        >
-            <div>
-                <MenuComponent />
-            </div>
-            <div className="mt-32 h-screen max-w-full">
+        <main style={theme.theme} className="block">
+            <MenuComponent />
+            <div className="h-screen md:mt-20 ">
                 <Outlet />
             </div>
         </main>

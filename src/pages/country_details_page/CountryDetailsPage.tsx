@@ -44,7 +44,7 @@ const CountryDetailsPage = () => {
     }, []);
 
     return (
-        <div className="flex flex-col md:flex-col lg:flex-row ">
+        <div className="flex flex-col pt-[124px] md:flex-col lg:flex-row ">
             <section className=" flex flex-col mx-[20px] md:-mt-20 md:flex-col md:w-fit  md:h-fit ">
                 <NavLink
                     to="/"

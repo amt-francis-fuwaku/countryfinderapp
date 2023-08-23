@@ -50,9 +50,9 @@ const FilterComponent = () => {
     }, [selectedRegion]);
 
     return (
-        <div className="mt-[40px] text-[12px] h-[48px] w-[200px] md:mt-0  md:text-[14px]">
+        <div className="mt-[40px] text-[12px] w-[200px] sm:mt-0 md:mt-0 d:text-[14px]">
             <div
-                className="flex justify-between cursor-pointer  text-[14px] items-center  h-[48px] w-[200px] rounded-md bg-white shadow-lg md:h-[56px] md:w-[200px] "
+                className="flex justify-between cursor-pointer text-[14px] items-center  h-[50px] w-[200px] rounded-md bg-white shadow-lg  md:w-[200px] "
                 style={theme.theme}
                 onClick={toggleDropDownList}
             >
@@ -68,7 +68,7 @@ const FilterComponent = () => {
             </div>
             {!dropDown && (
                 <ul
-                    className="flex pt-2 flex-col fixed justify-start  mt-1 h-[144px] w-[200px] rounded-md bg-white shadow-lg  md:h-[164px] md:w-[200px] md:pt-5"
+                    className="flex pt-2 flex-col fixed justify-start  mt-1 h-[144px] w-[200px] rounded-md bg-white shadow-md  md:h-[164px] md:w-[200px] md:pt-5"
                     style={theme.theme}
                 >
                     {dropDownList.map((item, index) => (

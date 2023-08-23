@@ -53,7 +53,7 @@ const SearchBarComponent = () => {
     }, [searchedCountry]);
     return (
         <div
-            className="flex flex-row justify-center items-center h-[48px] rounded-md bg-white shadow-lg md:w-[350px]  lg:w-[480px] md:h-[56px]"
+            className="flex flex-row justify-center items-center h-[48px] rounded-md bg-white shadow-md sm:w-[400px] md:w-[400px] lg:w-[480px] md:h-[56px]"
             style={theme.theme}
         >
             <div>
