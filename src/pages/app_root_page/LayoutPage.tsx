@@ -16,7 +16,7 @@ const LayoutPage = () => {
             <div>
                 <MenuComponent />
             </div>
-            <div className="mt-32 h-screen w-screen ">
+            <div className="mt-32 h-screen max-w-full">
                 <Outlet />
             </div>
         </main>

@@ -48,7 +48,7 @@ const CountryDetailsPage = () => {
             <section className=" flex flex-col mx-[20px] md:-mt-20 md:flex-col md:w-fit  md:h-fit ">
                 <NavLink
                     to="/"
-                    className="flex flex-row shrink-0 justify-around w-[104px] h-[42px] cursor-pointer shadow-md  rounded md:ml-[80px] md:mt-[80px] "
+                    className="flex flex-row shrink-0 justify-around w-[104px] h-[42px] cursor-pointer shadow-md  rounded md:ml-[80px] md:mt-[80px]"
                     style={{ color: `${theme.theme.color}` }}
                 >
                     <FontAwesomeIcon
@@ -60,21 +60,21 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
 
-                <div className="mt-[50px] md:mx-[80px] md:mt-[40px] md:w-full md:h-full lg:w-[400px] lg:h-[283px] 2xl:h-[483px] lg:mx-[80px] 2xl:w-[700px]">
+                <div className="mt-[50px]  md:mx-[80px] md:mt-[40px] md:w-full md:h-full lg:w-[559px] lg:h-[483px] 2xl:h-[483px]  2xl:w-[700px]">
                     <img
-                        className="rounded-md w-full h-full "
+                        className="rounded-md md:shrink-0 w-full h-full "
                         src={data.flags.png ? data.flags.png : "no data found"}
                         alt={` this is the flag of ${data.name.common}`}
                     />
                 </div>
             </section>
 
-            <section className="flex flex-col flex-shrink-0 mx-[28px] text-[14px] md:mt-0 md:mx-[80px] md:h-fit md:w-fit  md:text-[16px] lg:-ml-[35px] lg:mt-16 2xl:ml-0 2xl:mt-32">
-                <div className="mt-10 md:w-[598px] md:h-[323px]  ">
+            <section className="flex flex-col flex-shrink-0 mt-10 mx-[28px] text-[14px] md:mt-0 md:mx-[80px] md:h-fit md:w-fit  md:text-[16px] lg:-ml-[35px] lg:mt-[140px] 2xl:ml-0 2xl:mt-32">
+                <div className=" md:w-[598px] md:h-[323px]  ">
                     <p className="font-bold md:text-[22px] 2xl:text-[32px]">
                         {data.name.common ? data.name.common : "nodata found"}
                     </p>
-                    <div className="md:flex md:gap-[30px] text-[14px]  ">
+                    <div className="md:flex md:gap-[159px] text-[14px]  ">
                         <section className="mt-4">
                             <div className="flex gap-3 py-1 ">
                                 <p className="font-semibold ">Native Name:</p>
@@ -152,11 +152,11 @@ const CountryDetailsPage = () => {
                             </div>
                         </section>
                     </div>
-                    <section className="flex flex-col flex-wrap md:flex-row gap-3">
+                    <section className="flex flex-col flex-wrap md:flex-row gap-3 lg:mt-[75px]">
                         <p className="font-bold text-[14px] ">
                             Border Countries:
                         </p>
-                        <section className=" text-[12px] grid grid-cols-4 md:grid-cols-3 lg:grid-cols-3 lg:w-fit lg:gap-2 2xl:grid-cols-3 ">
+                        <section className=" text-[12px] grid grid-cols-4 md:grid-cols-3  lg:grid-cols-3 lg:w-fit lg:gap-2 2xl:grid-cols-3 ">
                             {borders.length > 0 ? (
                                 borderCountries.map(
                                     (borderCountries: Data, index: number) => (
