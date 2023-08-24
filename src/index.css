@@ -6,16 +6,16 @@
 
 @layer components {
     .card {
-        @apply flex flex-col shadow-lg rounded-t-lg h-[336px]  sm:w-[100%] md:w-[250px] md:h-[317px] lg:w-[272px] lg:h-[336px];
+        @apply flex flex-col shadow-lg rounded-t-lg h-[336px] sm:w-[100%] md:w-[100%]  lg:w-[100%];
     }
     .link {
-        @apply w-full rounded-t-lg sm:w-[100%] md:w-[250px] md:h-[317px] lg:w-[272px] lg:h-[336px];
+        @apply w-full rounded-t-lg sm:w-[100%] md:w-[100%] md:h-[336px] lg:w-[100%] lg:h-[336px];
     }
     .card-image {
-        @apply rounded-t-lg h-[160px] w-full md:h-[150px] lg:h-[190px];
+        @apply rounded-t-lg h-[160px] w-full  lg:h-[180px];
     }
     .card-list {
-        @apply grid grid-cols-1 place-items-center gap-[28px] m-auto sm:m-auto sm:gap-x-[10%]  sm:grid-cols-2 md:w-full md:grid-cols-3 md:gap-x-[13%] lg:grid-cols-4 lg:gap-[30px];
+        @apply grid grid-cols-1 place-items-center gap-[28px] m-auto sm:m-auto sm:gap-x-[10%]  sm:grid-cols-2 md:grid-cols-3 md:gap-x-[2%] lg:grid-cols-4 lg:gap-x-[40px];
     }
 }
 

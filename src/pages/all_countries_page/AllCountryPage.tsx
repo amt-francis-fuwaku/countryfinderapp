@@ -42,11 +42,11 @@ const AllCountryPage = () => {
     ) : (
         <>
             <section style={theme.theme} className="flex flex-col ">
-                <div className=" flex flex-col px-[16px] pt-[30%] sm:pt-[20%] sm:flex sm:flex-row sm:justify-between sm:items-center  md:pt-10 md:m-0 md:w-full  md:flex lg:flex md:justify-between lg:w-[1180px] lg:m-auto lg:py-10 lg:px-0">
+                <div className=" flex flex-col px-[16px] pt-[30%] sm:pt-[20%] sm:flex sm:flex-row sm:justify-between sm:items-center  md:pt-10 md:m-0 md:w-full  md:flex lg:flex md:justify-between lg:w-[80%] lg:m-auto lg:py-10 lg:px-0">
                     <SearchBarComponent />
                     <FilterComponent />
                 </div>
-                <div className="card-list py-10  px-[16px] sm:px-[16px]  md:px-[5%] md:w-full lg:w-[1180px] lg:px-0">
+                <div className="card-list py-10  px-[16px] sm:px-[16px] md:w-full lg:w-[80%] lg:px-0">
                     {data.length > 0 ? (
                         data.map((country: Data, index: number) => (
                             <NavLink

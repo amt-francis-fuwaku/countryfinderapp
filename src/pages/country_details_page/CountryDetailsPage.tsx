@@ -46,7 +46,7 @@ const CountryDetailsPage = () => {
     }, []);
 
     return !data ? (
-        <section className=" mx-[16px] flex flex-row items-center py-20  sm:justify-center md:justify-center">
+        <section className=" mx-[16px] flex flex-row items-center py-20 sm:justify-center md:justify-center">
             <p className="pr-[20px]">loading</p>
             <div className="relative h-[20px] w-[20px] ">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75"></span>
@@ -70,8 +70,8 @@ const CountryDetailsPage = () => {
             </div>
         </section>
     ) : (
-        <section className=" flex flex-col mx-[16px] pt-20 sm:flex-col sm:justify-between sm:gap-x-20 lg:gap-x-20 lg:flex-row lg:justify-between lg:items-center lg:w-[1180px] lg:m-auto ">
-            <div className=" rounded-md mt-10 lg:w-full lg:flex flex-col lg:gap-y-10">
+        <section className=" flex flex-col h-screen mx-[16px] pt-20 sm:flex-col sm:pt-20  md:pt-0 lg:pt-0 lg:gap-x-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto">
+            <div className=" rounded-md mt-10 lg:flex flex-col">
                 <NavLink
                     to="/"
                     className="flex flex-row justify-around w-[104px] h-[42px] cursor-pointer shadow-md rounded"
@@ -86,13 +86,12 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
                 <img
-                    className=" rounded-md mt-10 w-full lg:mt-0 lg:w-full lg:h-[400px]"
+                    className=" rounded-md mt-10 w-full lg:mt-10 lg:h-[400px]"
                     src={data && data.flags ? data.flags.svg : "no data found"}
                     alt={` this is the flag of ${data.name.common}`}
                 />
             </div>
-
-            <section className="mt-10 lg:mt-32">
+            <section className="mt-10 sm:pt-10 sm:gap-y-3 sm:mt-0 lg:mt-32 ">
                 <div className=" md:w-[598px] md:h-[323px]  ">
                     <p className="font-bold md:text-[22px] 2xl:text-[32px]">
                         {data && data.name ? data.name.common : "nodata found"}
