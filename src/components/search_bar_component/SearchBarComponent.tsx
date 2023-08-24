@@ -59,8 +59,8 @@ const SearchBarComponent = () => {
             <div>
                 <FontAwesomeIcon
                     icon={faMagnifyingGlass}
-                    size="lg"
-                    style={{ color: `${theme.theme.color}` }}
+                    size="sm"
+                    style={{ color: "gray" }}
                     className="px-[25px]"
                 />
             </div>

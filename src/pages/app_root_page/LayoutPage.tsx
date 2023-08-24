@@ -9,9 +9,9 @@ const LayoutPage = () => {
     const theme = useThemeProvider();
 
     return (
-        <main style={theme.theme} className="block">
+        <main style={theme.theme} className="h-full sm:h-full lg:h-full ">
             <MenuComponent />
-            <div className="h-screen md:mt-20 ">
+            <div className="h-full sm:h-full lg:h-screen md:mt-20 lg:md:mt-20 ">
                 <Outlet />
             </div>
         </main>

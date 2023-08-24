@@ -16,7 +16,7 @@ const CardComponent = ({ data }: CardComponentProps) => {
             />
 
             <div className="flex flex-col px-6 mt-[20px] ">
-                <p className="font-extrabold  text-[18px] ">
+                <p className="font-extrabold  text-[18px] lg:line-clamp-1">
                     {data.name.common}
                 </p>
                 <div className="text-[14px] mt-[5px]  ">

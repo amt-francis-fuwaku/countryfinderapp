@@ -16,7 +16,7 @@ const AllCountryPage = () => {
     //shows loading animation when data is loading
 
     return !data ? (
-        <section className=" mx-[16px] flex flex-row items-center py-40 sm:justify-center md:justify-center">
+        <section className="-pt-20 h-screen mx-[16px] flex flex-row items-center sm:justify-center md:justify-center">
             <p className="pr-[20px]">loading</p>
             <div className="relative h-[20px] w-[20px] ">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75"></span>
@@ -42,7 +42,7 @@ const AllCountryPage = () => {
     ) : (
         <>
             <section style={theme.theme} className="flex flex-col ">
-                <div className=" flex flex-col  px-[16px] pt-[30%] sm:pt-[20%] sm:flex sm:flex-row sm:justify-between sm:items-center  md:pt-10 md:m-0 md:w-full  md:flex  lg:flex md:justify-between lg:w-[1180px] lg:m-auto lg:py-10 lg:px-0">
+                <div className=" flex flex-col px-[16px] pt-[30%] sm:pt-[20%] sm:flex sm:flex-row sm:justify-between sm:items-center  md:pt-10 md:m-0 md:w-full  md:flex lg:flex md:justify-between lg:w-[1180px] lg:m-auto lg:py-10 lg:px-0">
                     <SearchBarComponent />
                     <FilterComponent />
                 </div>
@@ -50,7 +50,7 @@ const AllCountryPage = () => {
                     {data.length > 0 ? (
                         data.map((country: Data, index: number) => (
                             <NavLink
-                                to={`/${country.name.common}`} // Added a "/" before the route
+                                to={`${country.name.common}`} // Added a "/" before the route
                                 state={country}
                                 key={index}
                                 className="link"

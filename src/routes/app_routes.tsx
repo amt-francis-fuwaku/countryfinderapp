@@ -12,7 +12,11 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<LayoutPage />}>
             <Route index element={<AllCountryPage />} />
-            <Route path=":country" element={<CountryDetailsPage />} />
+            <Route
+                path=":country"
+                element={<CountryDetailsPage />}
+                errorElement={<CountryDetailsPage />}
+            />
         </Route>
     )
 );
