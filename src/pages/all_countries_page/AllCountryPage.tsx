@@ -5,6 +5,7 @@ import FilterComponent from "../../components/filter_region_component/FilterComp
 import { useDataProvider } from "../../context_data/useDataProvider";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
 import { Data } from "../../context_data/DataProvider";
+import LoadingComponent from "../../components/loading_component/LoadingComponent";
 
 const AllCountryPage = () => {
     const countryData = useDataProvider();
@@ -16,29 +17,7 @@ const AllCountryPage = () => {
     //shows loading animation when data is loading
 
     return !data ? (
-        <section className="-pt-20 h-screen mx-[16px] flex flex-row items-center sm:justify-center md:justify-center">
-            <p className="pr-[20px]">loading</p>
-            <div className="relative h-[20px] w-[20px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[20px] w-[20px]  bg-red-300"></span>
-            </div>
-            <div className="relative flex h-[20px] w-[20px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[20px] w-[20px]  bg-red-400"></span>
-            </div>
-            <div className="relative flex h-[30px] w-[30px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[30px] w-[30px]  bg-red-500"></span>
-            </div>
-            <div className="relative flex h-[40px] w-[40px]">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[40px] w-[40px]  bg-red-600"></span>
-            </div>
-            <div className="relative flex h-[50px] w-[50px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[50px] w-[50px]  bg-red-700"></span>
-            </div>
-        </section>
+        <LoadingComponent message="fetching Data ...." />
     ) : (
         <>
             <section style={theme.theme} className="flex flex-col ">
@@ -46,7 +25,7 @@ const AllCountryPage = () => {
                     <SearchBarComponent />
                     <FilterComponent />
                 </div>
-                <div className="card-list py-10  px-[16px] sm:px-[16px] md:w-full lg:w-[80%] lg:px-0">
+                <div className="card-list py-10 px-[16px] sm:px-[16px] md:w-full lg:w-[80%] lg:px-0">
                     {data.length > 0 ? (
                         data.map((country: Data, index: number) => (
                             <NavLink
@@ -59,13 +38,7 @@ const AllCountryPage = () => {
                             </NavLink>
                         ))
                     ) : (
-                        <section className="flex flex-row  items-center justify-between">
-                            <p className="pr-[20px]">no country found</p>
-                            <div className="relative flex h-5 w-5 ">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-5 w-5  bg-red-500"></span>
-                            </div>
-                        </section>
+                        <LoadingComponent message="Country Not Found" />
                     )}
                 </div>
             </section>
