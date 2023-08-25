@@ -50,7 +50,7 @@ const CountryDetailsPage = () => {
         </div>
     ) : (
         <section
-            className="grid grid-rows-1 px-[16px] pt-[60px] m-auto lg:grid-cols-2 lg:w-[80%] lg:px-0 lg:gap-10"
+            className="grid grid-rows-1 px-[16px] pt-[60px] m-auto md:pt-0 lg:grid-cols-2 lg:w-[80%] lg:px-0 lg:gap-10"
             style={theme.theme}
         >
             {/** country flag and back button */}
