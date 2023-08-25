@@ -49,7 +49,10 @@ const CountryDetailsPage = () => {
             <LoadingComponent message="no data found" />
         </div>
     ) : (
-        <section className=" border border-green-400 flex flex-col   mx-[16px] pt-20 sm:flex-col sm:pt-20 md:gap-0  md:pt-0 lg:pt-0 lg:gap-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto lg:mt-20 ">
+        <section
+            className=" border md:border-red-400 flex px-[16px] flex-col sm:h-full md:h-full pt-20 sm:flex-col sm:pt-20 md:gap-0  md:pt-0 lg:pt-0 lg:gap-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto lg:mt-20   "
+            style={theme.theme}
+        >
             <div className=" rounded-md mt-10 lg:flex flex-col">
                 <NavLink
                     to="/"

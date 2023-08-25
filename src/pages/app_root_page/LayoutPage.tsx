@@ -14,7 +14,10 @@ const LayoutPage = () => {
             className="h-full sm:h-full lg:h-full md:h-full "
         >
             <MenuComponent />
-            <div className="h-screen sm:h-screen lg:h-screen md:h-screen md:mt-20 lg:mt-20 ">
+            <div
+                className="h-screen sm:h-screen lg:h-screen md:h-screen md:mt-20 lg:mt-20  "
+                style={theme.theme}
+            >
                 <Outlet />
             </div>
         </main>
