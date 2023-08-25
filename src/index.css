@@ -15,7 +15,7 @@
         @apply rounded-t-lg h-[160px] w-full  lg:h-[180px];
     }
     .card-list {
-        @apply grid grid-cols-1 place-items-center gap-[28px] m-auto sm:m-auto sm:gap-x-[10%]  sm:grid-cols-2 md:grid-cols-3 md:gap-x-[2%] lg:grid-cols-4 lg:gap-x-[40px];
+        @apply grid grid-cols-1 place-items-center gap-[28px] m-auto sm:m-auto sm:gap-x-[10%]  sm:grid-cols-2 md:grid-cols-3 md:gap-x-[2%] lg:grid-cols-4 lg:gap-x-[50px];
     }
 }
 

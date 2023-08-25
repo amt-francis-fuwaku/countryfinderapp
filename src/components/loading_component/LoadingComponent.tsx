@@ -4,7 +4,7 @@ interface LoadingComponentProps {
 
 const LoadingComponent = ({ message }: LoadingComponentProps) => {
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex  justify-center items-center  ">
             <p className="pr-[20px]"> {message}</p>
             <div className="relative h-[20px] w-[20px] ">
                 <span className="animate-ping absolute  h-full w-full rounded-full bg-red-300 opacity-75"></span>

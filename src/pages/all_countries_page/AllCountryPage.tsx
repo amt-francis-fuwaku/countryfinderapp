@@ -17,7 +17,9 @@ const AllCountryPage = () => {
     //shows loading animation when data is loading
 
     return !data ? (
-        <LoadingComponent message="fetching Data ...." />
+        <div className="w-screen h-screen mt-20">
+            <LoadingComponent message="fetching Data...." />
+        </div>
     ) : (
         <>
             <section style={theme.theme} className="flex flex-col ">

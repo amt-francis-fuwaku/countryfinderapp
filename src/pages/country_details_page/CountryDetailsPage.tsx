@@ -5,6 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useDataProvider } from "../../context_data/useDataProvider";
 import { Data } from "../../context_data/DataProvider";
 import { useEffect } from "react";
+import LoadingComponent from "../../components/loading_component/LoadingComponent";
 
 const CountryDetailsPage = () => {
     //provides data for the page
@@ -12,10 +13,8 @@ const CountryDetailsPage = () => {
     const country = useLocation();
 
     const countryData = useDataProvider();
-    console.log("🚀 main API call countryData:", countryData.data);
 
     const data: Data = country?.state;
-    console.log("🚀 USE LOCATION countryData:", data);
     const borderData = countryData ? countryData?.data : [];
 
     //obstruct the object keys
@@ -45,32 +44,12 @@ const CountryDetailsPage = () => {
         return () => {};
     }, []);
 
-    return !data ? (
-        <section className=" mx-[16px] flex flex-row items-center py-20 sm:justify-center md:justify-center">
-            <p className="pr-[20px]">loading</p>
-            <div className="relative h-[20px] w-[20px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[20px] w-[20px]  bg-red-300"></span>
-            </div>
-            <div className="relative flex h-[20px] w-[20px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[20px] w-[20px]  bg-red-400"></span>
-            </div>
-            <div className="relative flex h-[30px] w-[30px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[30px] w-[30px]  bg-red-500"></span>
-            </div>
-            <div className="relative flex h-[40px] w-[40px]">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[40px] w-[40px]  bg-red-600"></span>
-            </div>
-            <div className="relative flex h-[50px] w-[50px] ">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-[50px] w-[50px]  bg-red-700"></span>
-            </div>
-        </section>
+    return data === null ? (
+        <div className="w-screen h-screen mt-20">
+            <LoadingComponent message="no data found" />
+        </div>
     ) : (
-        <section className=" flex flex-col h-screen mx-[16px] pt-20 sm:flex-col sm:pt-20  md:pt-0 lg:pt-0 lg:gap-x-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto">
+        <section className=" border border-green-400 flex flex-col   mx-[16px] pt-20 sm:flex-col sm:pt-20 md:gap-0  md:pt-0 lg:pt-0 lg:gap-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto lg:mt-20 ">
             <div className=" rounded-md mt-10 lg:flex flex-col">
                 <NavLink
                     to="/"
@@ -86,17 +65,17 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
                 <img
-                    className=" rounded-md mt-10 w-full lg:mt-10 lg:h-[400px]"
+                    className=" rounded-md mt-10 w-full lg:mt-10 lg:h-[400px] "
                     src={data && data.flags ? data.flags.svg : "no data found"}
                     alt={` this is the flag of ${data.name.common}`}
                 />
             </div>
-            <section className="mt-10 sm:pt-10 sm:gap-y-3 sm:mt-0 lg:mt-32 ">
-                <div className=" md:w-[598px] md:h-[323px]  ">
+            <section className="  mt-10 sm:pt-10 sm:gap-y-3 sm:mt-10 md:pt-0 lg:place-self-end lg:mt-0">
+                <div className=" md:w-full md:h-fit lg:w-fit  ">
                     <p className="font-bold md:text-[22px] 2xl:text-[32px]">
                         {data && data.name ? data.name.common : "nodata found"}
                     </p>
-                    <div className="md:flex md:gap-[10%] text-[14px]  ">
+                    <div className="md:flex md:gap-[10%] text-[14px] lg:gap-x-[20%] ">
                         <section className="mt-4">
                             <div className="flex gap-3 py-1 ">
                                 <p className="font-semibold ">Native Name:</p>
@@ -140,7 +119,7 @@ const CountryDetailsPage = () => {
                             </div>
                         </section>
                         {/*top level*/}
-                        <section className="mt-6 md:w-[250px]">
+                        <section className="mt-6 md:w-[250px] lg:w-full">
                             <div className="flex py-1">
                                 <p className="font-semibold ">
                                     Top Level Domain:
@@ -174,37 +153,35 @@ const CountryDetailsPage = () => {
                             </div>
                         </section>
                     </div>
-                    <section className="flex mb-[5%] mt-4 flex-col flex-wrap md:flex-row gap-3">
-                        <p className="font-bold text-[14px] ">
-                            Border Countries:
-                        </p>
-                        <section className=" text-[12px] grid grid-cols-3 md:grid-cols-3  lg:grid-cols-3 lg:w-fit lg:gap-2  ">
-                            {data && borders.length > 0 ? (
-                                borderCountries.map(
-                                    (borderCountries: Data, index: number) => (
-                                        <NavLink
-                                            to={{ pathname: "" }}
-                                            state={borderCountries}
-                                            key={index}
-                                            className="h-fit w-full py-2 px-0 text-center shadow-md rounded-sm md:w-[100px] "
-                                            style={{
-                                                color: `${theme.theme.color}`,
-                                            }}
-                                        >
-                                            <p className=" text-center ">
-                                                {borderCountries.name.common}
-                                            </p>
-                                        </NavLink>
-                                    )
-                                )
-                            ) : (
-                                <p className="text-[12px] md:mt-[5px]">
-                                    No border Country Found
-                                </p>
-                            )}
-                        </section>
-                    </section>
                 </div>
+                <section className="flex mb-[5%] mt-4 flex-col flex-wrap gap-3 md:flex-row  md:my-0 ">
+                    <p className="font-bold text-[14px] ">Border Countries:</p>
+                    <section className=" text-[12px] grid grid-cols-3 md:grid-cols-3  lg:grid-cols-3 lg:w-full lg:gap-2  ">
+                        {data && borders.length > 0 ? (
+                            borderCountries.map(
+                                (borderCountries: Data, index: number) => (
+                                    <NavLink
+                                        to={{ pathname: "" }}
+                                        state={borderCountries}
+                                        key={index}
+                                        className="h-fit w-full py-2 px-0 text-center shadow-md rounded-sm md:w-[100px] lg:w-full "
+                                        style={{
+                                            color: `${theme.theme.color}`,
+                                        }}
+                                    >
+                                        <p className=" text-center ">
+                                            {borderCountries.name.common}
+                                        </p>
+                                    </NavLink>
+                                )
+                            )
+                        ) : (
+                            <p className="text-[12px] md:mt-[5px]">
+                                No border Country Found
+                            </p>
+                        )}
+                    </section>
+                </section>
             </section>
         </section>
     );
