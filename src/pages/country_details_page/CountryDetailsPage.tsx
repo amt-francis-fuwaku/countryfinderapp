@@ -163,7 +163,7 @@ const CountryDetailsPage = () => {
                     </div>
                 </div>
                 {/**border */}
-                <section className="flex mb-[5%] mt-4 flex-row flex-wrap gap-3 md:flex-row md:my-0 lg:flex-row lg:place">
+                <section className="flex mb-[5%] mt-4 flex-row flex-wrap gap-3 md:flex-row  md:mt-10 lg:flex-row lg:place">
                     <p className="font-bold text-[14px] ">Border Countries:</p>
                     <section className=" text-[12px] grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 md:h-full  lg:grid-cols-4 lg:w-fit lg:gap-2 ">
                         {data && borders.length > 0 ? (
