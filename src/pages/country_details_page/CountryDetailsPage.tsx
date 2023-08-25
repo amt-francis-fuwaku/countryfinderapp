@@ -50,7 +50,7 @@ const CountryDetailsPage = () => {
         </div>
     ) : (
         <section
-            className=" border md:border-red-400 flex px-[16px] flex-col sm:h-full md:h-full pt-20 sm:flex-col sm:pt-20 md:gap-0  md:pt-0 lg:pt-0 lg:gap-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto lg:mt-20   "
+            className="  flex px-[16px] flex-col sm:h-full md:h-full pt-20 sm:flex-col sm:pt-20 md:gap-0  md:pt-0 lg:pt-0 lg:gap-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto lg:mt-20   "
             style={theme.theme}
         >
             <div className=" rounded-md mt-10 lg:flex flex-col">
@@ -157,9 +157,9 @@ const CountryDetailsPage = () => {
                         </section>
                     </div>
                 </div>
-                <section className="flex mb-[5%] mt-4 flex-col flex-wrap gap-3 md:flex-row  md:my-0 ">
+                <section className="flex mb-[5%] mt-4 flex-col flex-wrap gap-3 md:flex-row  md:my-0 lg:flex-row ">
                     <p className="font-bold text-[14px] ">Border Countries:</p>
-                    <section className=" text-[12px] grid grid-cols-3 md:grid-cols-3  lg:grid-cols-3 lg:w-full lg:gap-2  ">
+                    <section className="  text-[12px] grid grid-cols-3 md:grid-cols-3  lg:grid-cols-4 lg:w-fit lg:gap-2  ">
                         {data && borders.length > 0 ? (
                             borderCountries.map(
                                 (borderCountries: Data, index: number) => (
@@ -172,7 +172,7 @@ const CountryDetailsPage = () => {
                                             color: `${theme.theme.color}`,
                                         }}
                                     >
-                                        <p className=" text-center ">
+                                        <p className=" text-center  lg:px-5">
                                             {borderCountries.name.common}
                                         </p>
                                     </NavLink>
