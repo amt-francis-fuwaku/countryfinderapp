@@ -50,9 +50,10 @@ const CountryDetailsPage = () => {
         </div>
     ) : (
         <section
-            className="  flex px-[16px] flex-col sm:h-full md:h-full pt-20 sm:flex-col sm:pt-20 md:gap-0  md:pt-0 lg:pt-0 lg:gap-20 lg:h-fit lg:flex-row lg:items-center lg:w-[80%] lg:m-auto lg:mt-20   "
+            className="grid grid-rows-1 px-[16px] pt-[60px] m-auto lg:grid-cols-2 lg:w-[80%] lg:px-0 lg:gap-10"
             style={theme.theme}
         >
+            {/** country flag and back button */}
             <div className=" rounded-md mt-10 lg:flex flex-col">
                 <NavLink
                     to="/"
@@ -68,17 +69,20 @@ const CountryDetailsPage = () => {
                     <p className="self-center cursor-pointer ">Back</p>
                 </NavLink>
                 <img
-                    className=" rounded-md mt-10 w-full lg:mt-10 lg:h-[400px] "
+                    className=" rounded-md mt-10 w-auto sm:h-[467px] md:h-[467px] lg:h-[467px] lg:mt-10"
                     src={data && data.flags ? data.flags.svg : "no data found"}
                     alt={` this is the flag of ${data.name.common}`}
                 />
             </div>
-            <section className="  mt-10 sm:pt-10 sm:gap-y-3 sm:mt-10 md:pt-0 lg:place-self-end lg:mt-0">
-                <div className=" md:w-full md:h-fit lg:w-fit  ">
+
+            {/** country details  */}
+            <section className=" mt-2 sm:pt-10 sm:gap-y-3 md:pt-0 lg:place-self-center md:w-full lg:w-fit lg:mt-32">
+                <div>
                     <p className="font-bold md:text-[22px] 2xl:text-[32px]">
                         {data && data.name ? data.name.common : "nodata found"}
                     </p>
-                    <div className="md:flex md:gap-[10%] text-[14px] lg:gap-x-[20%] ">
+                    <div className=" flex flex-col sm:flex-row sm:gap-x-10 sm:justify-between md:gap-x-5 md:justify-between text-[14px] lg:gap-x-[5%] ">
+                        {/**basic country information */}
                         <section className="mt-4">
                             <div className="flex gap-3 py-1 ">
                                 <p className="font-semibold ">Native Name:</p>
@@ -112,7 +116,7 @@ const CountryDetailsPage = () => {
                                         : "no data found"}
                                 </p>
                             </div>
-                            <div className="flex gap-3  py-1">
+                            <div className="flex gap-3 py-1">
                                 <p className="font-semibold ">Capital:</p>
                                 <p className="font-thin ">
                                     {data.capital
@@ -139,7 +143,8 @@ const CountryDetailsPage = () => {
                                         : "no data found"}
                                 </p>
                             </div>
-                            <div className=" flex flex-wrap shrink-0  mt-[10px] text-justify">
+                            {/**languages */}
+                            <div className=" flex flex-wrap shrink-0 lg:w-full mt-[10px] text-justify">
                                 <p className="font-bold text-[14px] mr-[10px]">
                                     Languages:
                                 </p>
@@ -157,9 +162,10 @@ const CountryDetailsPage = () => {
                         </section>
                     </div>
                 </div>
-                <section className="flex mb-[5%] mt-4 flex-col flex-wrap gap-3 md:flex-row  md:my-0 lg:flex-row ">
+                {/**border */}
+                <section className="flex mb-[5%] mt-4 flex-row flex-wrap gap-3 md:flex-row md:my-0 lg:flex-row lg:place">
                     <p className="font-bold text-[14px] ">Border Countries:</p>
-                    <section className="  text-[12px] grid grid-cols-3 md:grid-cols-3  lg:grid-cols-4 lg:w-fit lg:gap-2  ">
+                    <section className=" text-[12px] grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 md:h-full  lg:grid-cols-4 lg:w-fit lg:gap-2 ">
                         {data && borders.length > 0 ? (
                             borderCountries.map(
                                 (borderCountries: Data, index: number) => (
