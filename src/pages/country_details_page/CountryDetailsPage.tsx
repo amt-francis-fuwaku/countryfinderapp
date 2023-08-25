@@ -50,11 +50,11 @@ const CountryDetailsPage = () => {
         </div>
     ) : (
         <section
-            className="grid grid-rows-1 px-[16px] pt-[60px] m-auto md:pt-0 lg:grid-cols-2 lg:w-[80%] lg:px-0 lg:gap-10"
+            className="grid grid-rows-1 px-[16px] pt-[60px] m-auto md:pt-0 lg:grid-cols-2 lg:w-[80%] lg:px-0 lg:gap-28"
             style={theme.theme}
         >
             {/** country flag and back button */}
-            <div className=" rounded-md mt-10 lg:flex flex-col">
+            <div className=" px-0 rounded-md mt-10 lg:flex flex-col">
                 <NavLink
                     to="/"
                     className="flex flex-row justify-around w-[104px] h-[42px] cursor-pointer shadow-md rounded"
