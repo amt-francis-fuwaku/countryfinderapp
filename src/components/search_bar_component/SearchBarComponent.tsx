@@ -22,7 +22,7 @@ const SearchBarComponent = () => {
     //set the searched term
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        setSearchedCountry(e?.currentTarget.value);
+        setSearchedCountry(e?.currentTarget.value.toLowerCase());
     };
 
     //filter the data for the searched country

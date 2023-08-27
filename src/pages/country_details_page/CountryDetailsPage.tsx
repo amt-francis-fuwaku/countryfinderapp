@@ -8,14 +8,35 @@ import { useEffect } from "react";
 import LoadingComponent from "../../components/loading_component/LoadingComponent";
 
 const CountryDetailsPage = () => {
+    //solves the nested route issues
+    const localSaved = window.localStorage.getItem("country");
+    let savedObj = null;
+    if (localSaved !== null) {
+        try {
+            savedObj = JSON.parse(localSaved);
+        } catch (error) {
+            console.error("Error parsing JSON:", error);
+        }
+    }
+    const localSavedBorder = window.localStorage.getItem("border");
+    let savedBorder = null;
+    if (localSavedBorder !== null) {
+        try {
+            savedBorder = JSON.parse(localSavedBorder);
+        } catch (error) {
+            console.error("Error parsing JSON:", error);
+        }
+    }
+    //end route issues
+
     //provides data for the page
     const theme = useThemeProvider();
     const country = useLocation();
 
     const countryData = useDataProvider();
 
-    const data: Data = country?.state;
-    const borderData = countryData ? countryData?.data : [];
+    const data: Data = country?.state || savedObj;
+    const borderData = countryData?.data || savedBorder;
 
     //obstruct the object keys
     const currencyCode = data?.currencies
@@ -40,8 +61,11 @@ const CountryDetailsPage = () => {
     });
 
     useEffect(() => {
+        window.localStorage.setItem("country", JSON.stringify(data));
+        window.localStorage.setItem("border", JSON.stringify(borderCountries));
+    });
+    useEffect(() => {
         countryData.fetchData();
-        return () => {};
     }, []);
 
     return data === null ? (
