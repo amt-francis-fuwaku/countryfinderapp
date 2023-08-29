@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useThemeProvider } from "../../context_data/useThemeProvider";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useDataProvider } from "../../context_data/useDataProvider";
 import { Data } from "../../context_data/DataProvider";
 import { useEffect } from "react";
@@ -32,6 +32,9 @@ const CountryDetailsPage = () => {
     //provides data for the page
     const theme = useThemeProvider();
     const country = useLocation();
+
+    const param = useParams();
+    console.table({ country: param });
 
     const countryData = useDataProvider();
 
@@ -192,10 +195,10 @@ const CountryDetailsPage = () => {
                     <section className=" text-[12px] grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 md:h-full  lg:grid-cols-4 lg:w-fit lg:gap-2 ">
                         {data && borders.length > 0 ? (
                             borderCountries.map(
-                                (borderCountries: Data, index: number) => (
+                                (borderCountry: Data, index: number) => (
                                     <NavLink
                                         to={{ pathname: "" }}
-                                        state={borderCountries}
+                                        state={borderCountry}
                                         key={index}
                                         className="h-fit w-full py-2 px-0 text-center shadow-md rounded-sm md:w-[100px] lg:w-full "
                                         style={{
@@ -203,7 +206,7 @@ const CountryDetailsPage = () => {
                                         }}
                                     >
                                         <p className=" text-center  lg:px-5">
-                                            {borderCountries.name.common}
+                                            {borderCountry.name.common}
                                         </p>
                                     </NavLink>
                                 )
